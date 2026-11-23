@@ -1,0 +1,8 @@
+Notes.gs
+*.bak
+node_modules/
+preview-index.html
+src/
+private/
+node_modules/
+*.log
