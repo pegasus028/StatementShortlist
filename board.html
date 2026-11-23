@@ -15,12 +15,12 @@ html,body{height:100%}
 body{font-family:'Public Sans',system-ui,sans-serif;background:var(--ink);color:var(--paper);overflow:hidden;
   background-image:radial-gradient(circle at 12% 10%,rgba(226,181,83,.14),transparent 45%),radial-gradient(circle at 88% 90%,rgba(224,96,111,.10),transparent 45%)}
 button{font:inherit;color:inherit;cursor:pointer}
-.lab{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--gold)}
+.lab{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:var(--fl);color:var(--gold)}
 .stage{height:100vh;display:flex;flex-direction:column;padding:16px 28px 12px}
 header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex:0 0 auto}
 .title h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:46px;line-height:.95}
 .title h1 em{color:var(--gold)}
-.title .sub{font-size:14px;color:var(--muted);margin-top:6px}
+.title .sub{font-size:var(--fb);color:var(--muted);margin-top:6px}
 .title .sub b{color:var(--paper)}
 .phasebar{display:flex;gap:6px;margin-top:10px}
 .phasebar span{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px;padding:4px 12px;border-radius:999px;border:1.5px solid var(--line);color:var(--muted)}
@@ -45,11 +45,11 @@ main{flex:1;min-height:0;overflow:auto;margin-top:12px;padding-right:6px;scrollb
 .pbox{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;min-height:120px}
 .pbox.done{border-color:var(--green)}
 .pbox .pn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;display:flex;justify-content:space-between}
-.pbox .m{font-size:15px;padding:2px 0;display:flex;justify-content:space-between;gap:6px}
+.pbox .m{flex-wrap:wrap;font-size:var(--fb);padding:2px 0;display:flex;justify-content:space-between;gap:6px}
 .pbox .m .ok{color:var(--green);font-weight:700}
 .pbox .m .no{color:var(--muted)}
 .pbox .noms{display:flex;gap:4px;margin-top:6px}
-.pbox .noms img,.pbox .noms .ph{width:34px;height:42px;border-radius:6px;object-fit:cover;font-size:16px}
+.pbox .noms img,.pbox .noms .ph{width:34px;height:42px;border-radius:6px;object-fit:cover;font-size:var(--fb)}
 .ph{background:var(--panel2);display:inline-grid;place-items:center;color:var(--muted);font-family:'Instrument Serif',serif}
 /* leaderboard */
 .lbrow{display:grid;grid-template-columns:42px 56px 150px 1fr 90px 210px;align-items:center;gap:12px;padding:7px 10px;border-radius:12px;cursor:pointer}
@@ -60,8 +60,13 @@ main{flex:1;min-height:0;overflow:auto;margin-top:12px;padding-right:6px;scrollb
 .lbrow .track{height:22px;background:rgba(239,233,221,.08);border-radius:7px;overflow:hidden}
 .lbrow .track i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--gold-d),var(--gold));transition:width .7s cubic-bezier(.2,.9,.3,1)}
 .lbrow .pt{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:34px;text-align:right;font-variant-numeric:tabular-nums}
-.lbrow .tags{display:flex;gap:6px;flex-wrap:wrap;font-size:13px}
+.lbrow .tags{display:flex;gap:6px;flex-wrap:wrap;font-size:var(--fl)}
 .lbrow.r1 .rk{color:var(--gold)} .lbrow.r2 .rk,.lbrow.r3 .rk{color:var(--red)}
+#lbrows .lbrow{height:var(--rh);padding:0 10px;grid-template-columns:42px calc((var(--rh) - 8px) * .8) 220px 1fr 90px 260px}
+#lbrows .lbrow img,#lbrows .lbrow .ph{height:calc(var(--rh) - 8px);width:calc((var(--rh) - 8px) * .8);font-size:calc(var(--rh) * .35)}
+#lbrows .lbrow .nm{font-size:min(32px,calc(var(--rh) * .44))} #lbrows .lbrow .rk,#lbrows .lbrow .pt{font-size:min(34px,calc(var(--rh) * .5))}
+#lbrows .lbrow .track{height:min(22px,calc(var(--rh) * .3))} #lbrows.tight .fac{display:none} #lbrows .tags{font-size:var(--fl)}
+@media (max-width:1400px){ #lbrows .lbrow{grid-template-columns:36px calc((var(--rh) - 8px) * .8) 150px 1fr 70px 200px} }
 .lbrow.cutline{border-top:2px dashed var(--line);border-radius:0 0 12px 12px}
 .tag{border-radius:999px;padding:2px 9px;font-weight:700;background:var(--panel2);white-space:nowrap}
 .tag.gold{background:rgba(226,181,83,.18);color:var(--gold)} .tag.red{background:rgba(224,96,111,.16);color:var(--red)} .tag.flag{background:rgba(240,138,85,.16);color:var(--orange)}
@@ -70,7 +75,7 @@ main{flex:1;min-height:0;overflow:auto;margin-top:12px;padding-right:6px;scrollb
 .seg button[aria-pressed=true]{background:var(--gold);color:var(--ink)}
 /* matrix */
 table.mx{border-collapse:separate;border-spacing:4px;width:100%}
-.mx th{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:var(--muted);text-align:center;padding:4px}
+.mx th{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:var(--fl);color:var(--muted);text-align:center;padding:4px}
 .mx th.c{text-align:left}
 .mx td{text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:24px;padding:5px 0;border-radius:8px;background:var(--panel)}
 .mx td.c{background:transparent;text-align:left;font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;cursor:pointer;white-space:nowrap}
@@ -78,31 +83,31 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .mx td.k1{background:var(--gold);color:var(--ink)} .mx td.k2,.mx td.k3{background:rgba(224,96,111,.85);color:#fff}
 .mx td.kb{background:#2a2f3b;color:#6f7889}
 .mx td.sum{background:transparent;color:var(--gold)}
-.legend{display:flex;gap:16px;font-size:14px;color:var(--muted);margin-top:8px;flex-wrap:wrap}
+.legend{display:flex;gap:16px;font-size:var(--fl);color:var(--muted);margin-top:8px;flex-wrap:wrap}
 .legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:5px}
 /* agreement */
 .agr{display:grid;grid-template-columns:150px 1fr 120px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer}
 .agr .nm{font-family:'Instrument Serif',serif;font-size:26px}
 .scale{position:relative;height:30px;background:rgba(239,233,221,.05);border-radius:8px}
 .scale .rng{position:absolute;top:11px;height:8px;border-radius:4px;background:rgba(226,181,83,.45)}
-.scale .dotp{position:absolute;top:6px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--gold);border:2px solid var(--ink);font-size:10px;color:var(--ink);display:grid;place-items:center;font-weight:700}
+.scale .dotp{position:absolute;top:6px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--gold);border:2px solid var(--ink);font-size:var(--fl);color:var(--ink);display:grid;place-items:center;font-weight:700}
 .scale .doti{position:absolute;top:24px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--blue);opacity:.7}
-.ticks{display:grid;grid-template-columns:150px 1fr 120px;gap:12px;font-size:12px;color:var(--muted)}
+.ticks{display:grid;grid-template-columns:150px 1fr 120px;gap:12px;font-size:var(--fl);color:var(--muted)}
 .ticks .t{display:flex;justify-content:space-between}
-.verdict{font-weight:700;font-size:15px}
+.verdict{font-weight:700;font-size:var(--fb)}
 .verdict.agree{color:var(--green)} .verdict.split{color:var(--orange)}
 /* red flags report */
-.rfsum{display:flex;gap:28px;margin-top:10px;font-size:17px;color:var(--muted)}
+.rfsum{display:flex;gap:28px;margin-top:10px;font-size:var(--fb);color:var(--muted)}
 .rfsum b{font-family:'Barlow Condensed',sans-serif;font-size:30px;color:var(--paper);margin-right:2px}
 .rfrow{display:grid;grid-template-columns:52px 150px 200px 1fr;gap:14px;align-items:center;padding:9px 12px;border-radius:12px;border-bottom:1px dashed var(--line)}
 .rfrow .ph{width:52px;height:65px;border-radius:8px;font-size:24px;cursor:pointer}
 .rfrow .nm{font-family:'Instrument Serif',serif;font-size:30px;line-height:1;cursor:pointer}
 .rfrow .ct{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:30px;color:var(--orange);line-height:1}
-.rfrow .ct small{display:block;font-size:14px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-top:3px}
+.rfrow .ct small{display:block;font-size:var(--fl);color:var(--muted);font-weight:600;letter-spacing:.04em;margin-top:3px}
 .rfrow .ct .bar{height:6px;background:rgba(239,233,221,.08);border-radius:3px;margin-top:6px;overflow:hidden}
 .rfrow .ct .bar i{display:block;height:100%;background:var(--orange)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border-radius:999px;padding:4px 12px;font-size:16px;font-weight:600;background:var(--panel2);border:1.5px solid var(--line);white-space:nowrap}
+.chip{border-radius:999px;padding:4px 12px;font-size:var(--fb);font-weight:600;background:var(--panel2);border:1.5px solid var(--line);white-space:nowrap}
 .chip small{color:var(--muted);font-weight:500;margin-left:4px}
 .chip.hi{border-color:var(--gold);color:var(--gold)}
 /* applicant modal */
@@ -114,28 +119,28 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .mhead .nm{font-family:'Instrument Serif',serif;font-size:60px;line-height:1}
 .ans{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
 .ans p{font-size:22px;line-height:1.5;margin-top:6px}
-.listen{border:1.5px solid var(--blue);color:var(--blue);background:rgba(127,176,224,.12);border-radius:999px;padding:4px 14px;font-weight:700;font-size:15px}
+.listen{border:1.5px solid var(--blue);color:var(--blue);background:rgba(127,176,224,.12);border-radius:999px;padding:4px 14px;font-weight:700;font-size:var(--fb)}
 .listen.playing{background:var(--blue);color:var(--ink)}
-.reason{background:var(--panel2);border-radius:12px;padding:10px 14px;margin-top:10px;font-size:18px;line-height:1.45}
-.reason .who{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:14px;color:var(--gold)}
+.reason{background:var(--panel2);border-radius:12px;padding:10px 14px;margin-top:10px;font-size:var(--fb);line-height:1.45}
+.reason .who{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:var(--fl);color:var(--gold)}
 .hist{display:flex;align-items:flex-end;gap:5px;height:90px;margin-top:8px}
 .hist div{flex:1;background:var(--blue);border-radius:4px 4px 0 0;min-height:2px;position:relative}
-.hist div span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted)}
+.hist div span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:var(--fl);color:var(--muted)}
 .closex{position:absolute;top:18px;right:24px;font-size:28px;background:none;border:0}
 /* decision picker */
 .pick{display:grid;grid-template-columns:repeat(10,1fr);gap:10px;margin-top:10px}
 .pick button{border:2px solid var(--line);background:var(--panel2);border-radius:12px;padding:8px 4px;text-align:center}
 .pick button .ph{width:100%;aspect-ratio:4/5;border-radius:8px;display:grid;font-size:28px}
 .pick button b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;margin-top:4px}
-.pick button small{display:block;font-size:12px;color:var(--muted);min-height:16px}
+.pick button small{display:block;font-size:var(--fl);color:var(--muted);min-height:16px}
 .pick button.offer{border-color:var(--red)} .pick button.sch{border-color:var(--gold);box-shadow:0 0 22px rgba(226,181,83,.45)}
 /* notes */
-.ntable{width:100%;border-collapse:collapse;font-size:17px}
+.ntable{width:100%;border-collapse:collapse;font-size:var(--fb)}
 .ntable td,.ntable th{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
-.ntable th{font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:14px;color:var(--gold)}
+.ntable th{font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:var(--fl);color:var(--gold)}
 .ntable tr.rf td{background:rgba(224,96,111,.12)}
 .big{font-family:'Instrument Serif',serif;font-size:34px;line-height:1.2}
-.empty{color:var(--muted);font-size:20px;text-align:center;padding:60px 0}
+.empty{color:var(--muted);font-size:var(--fb);text-align:center;padding:60px 0}
 /* controls */
 .controls{display:flex;gap:7px;align-items:center;margin-top:10px;flex-wrap:wrap;flex:0 0 auto}
 .controls input{width:58px;font-size:16px;padding:8px;border:2px solid var(--gold);border-radius:8px;background:transparent;color:var(--paper);text-align:center}
@@ -187,56 +192,64 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 @media (max-height:860px){ .title h1{font-size:38px} .clock{font-size:60px} .lbrow{padding:3px 10px} .lbrow .ph{width:38px;height:48px;font-size:18px} .lbrow .nm{font-size:24px} .lbrow .rk,.lbrow .pt{font-size:26px} .lbrow .track{height:16px} .mx td{font-size:19px;padding:2px 0} .mx td.c{font-size:21px} .mx td.c .ph{width:24px;height:30px} .agr{padding:2px 0} .agr .nm{font-size:21px} }
 @media (prefers-reduced-motion:reduce){ .pface,.block,.clapside svg *{animation:none!important;opacity:1} }
 /* ---- The Statement Shortlist additions ---- */
-:root{--amber:#f2a93b}
+:root{--amber:#f2a93b;
+  /* projector type: grows with the screen (1920 px: labels 18, body 22, Marked text 24+; 1366 px: about 13 / 16 / 18) */
+  --fl:clamp(12px,.94vw,20px);--fb:clamp(14px,1.15vw,24px);--fm:clamp(16px,1.3vw,28px)}
 .phasebar span.opt{border-style:dashed}
 .phasebar span small{font-size:11px;letter-spacing:.04em;opacity:.8;margin-left:4px;text-transform:none;font-weight:600}
 .vhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.vhead .sub2{color:var(--muted);font-size:15px;margin-top:2px;max-width:1250px}
-.names{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border:1.5px solid var(--orange);border-radius:999px;padding:3px 10px;white-space:nowrap}
-.pbox .pn small{font-family:'Public Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);margin-left:6px}
-.pbox .m .st{color:var(--muted);font-size:13px;white-space:nowrap}
-.fac{display:block;font-family:'Public Sans',sans-serif;font-size:13px;color:var(--muted);margin-top:3px}
+.vhead .sub2{color:var(--muted);font-size:var(--fb);margin-top:2px;max-width:1250px}
+.names{font-size:var(--fl);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border:1.5px solid var(--orange);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.pbox .pn small{font-family:'Public Sans',sans-serif;font-size:var(--fl);font-weight:600;color:var(--muted);margin-left:6px}
+.pbox .m .st{color:var(--muted);font-size:var(--fl);white-space:nowrap}
+.fac{display:block;font-family:'Public Sans',sans-serif;font-size:var(--fl);color:var(--muted);margin-top:3px}
 /* marked text */
 .fpick{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.fpick button{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:4px 12px 4px 4px;font-weight:700;font-size:15px;color:var(--muted)}
+.fpick button{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:4px 12px 4px 4px;font-weight:700;font-size:var(--fl);color:var(--muted)}
 .fpick button .ph{width:26px;height:32px;border-radius:5px;font-size:14px}
 .fpick button[aria-pressed=true]{border-color:var(--gold);color:var(--paper);background:var(--panel2)}
 .mthead{display:flex;gap:16px;align-items:center;margin-top:12px}
 .mthead .ph{width:54px;height:68px;border-radius:8px;font-size:26px}
 .mthead .nm{font-family:'Instrument Serif',serif;font-size:36px;line-height:1}
-.mtlegend{display:flex;gap:14px;font-size:14px;color:var(--muted);margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+.mtlegend{display:flex;gap:14px;font-size:var(--fl);color:var(--muted);margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
 .mtlegend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
 .para{display:grid;grid-template-columns:96px 1fr;gap:10px;margin-top:6px}
-.para .pl{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:15px;color:var(--gold);padding-top:6px}
-.mu{display:grid;grid-template-columns:1fr 300px;gap:14px;align-items:center;margin-bottom:4px}
-.mtx{font-size:18px;line-height:1.35;padding:4px 12px;border-radius:9px;border:2px solid transparent}
+.para .pl{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:var(--fl);color:var(--gold);padding-top:6px}
+.mu{display:grid;grid-template-columns:1fr 340px;gap:14px;align-items:center;margin-bottom:4px}
+.mtx{font-size:var(--fm);line-height:1.32;padding:4px 12px;border-radius:9px;border:2px solid transparent}
 .mu.key-e .mtx{border-color:var(--green)} .mu.key-c .mtx{border-color:var(--amber)} .mu.key-f .mtx{border-color:var(--red)}
 .lno{font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--muted);margin-right:8px;letter-spacing:.06em}
-.keytag{font-size:13px;font-weight:700;margin-top:1px;letter-spacing:.02em}
+.keytag{font-size:var(--fl);font-weight:700;margin-top:1px;letter-spacing:.02em}
 .keytag span{font-weight:500;color:var(--muted)}
 .kt-e{color:var(--green)} .kt-c{color:var(--amber)} .kt-f{color:var(--red)}
 .mbars{display:grid;gap:1px}
-.mb{display:grid;grid-template-columns:20px 1fr 28px;align-items:center;gap:6px;font-size:12px;line-height:1;height:14px}
+.mb{display:grid;grid-template-columns:1.6em 1fr 2em;align-items:center;gap:6px;font-size:var(--fl);line-height:1;height:calc(var(--fl) + 3px)}
+.mtrow{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.mtrow .fpick{margin-top:0}
+.mtinfo{font-size:var(--fb);color:var(--muted);margin-left:auto}
+.mtinfo b{color:var(--paper);font-family:'Instrument Serif',serif;font-weight:400;font-size:calc(var(--fb) * 1.4)}
+.domi{font-weight:700;margin-right:8px} .d-e{color:var(--green)} .d-c{color:var(--amber)}
 .mb-e span{color:var(--green)} .mb-c span{color:var(--amber)}
 .mb .trk{height:9px;background:rgba(239,233,221,.07);border-radius:5px;overflow:hidden}
 .mb .trk i{display:block;height:100%;border-radius:5px}
 .mb-e .trk i{background:var(--green)} .mb-c .trk i{background:var(--amber)} .mb-f .trk i{background:var(--red)}
-.mb b{font-family:'Barlow Condensed',sans-serif;font-size:15px;text-align:right;font-variant-numeric:tabular-nums}
+.mb b{font-family:'Barlow Condensed',sans-serif;font-size:calc(var(--fl) + 2px);text-align:right;font-variant-numeric:tabular-nums}
 .mb.z b{color:#59627a}
 /* applicant file in the modal */
-.ftext p{font-size:20px;line-height:1.5;margin-top:8px}
-.aline{display:grid;grid-template-columns:26px 1fr;gap:6px;font-size:19px;line-height:1.45;margin-top:6px}
+.ftext p{font-size:var(--fb);line-height:1.5;margin-top:8px}
+.aline{display:grid;grid-template-columns:26px 1fr;gap:6px;font-size:var(--fb);line-height:1.45;margin-top:6px}
 .aline b{font-family:'Barlow Condensed',sans-serif;color:var(--gold)}
-.att{margin-top:8px;border-left:3px solid var(--gold);padding:4px 10px;font-family:'Instrument Serif',serif;font-size:19px;color:var(--paper);background:rgba(226,181,83,.06);border-radius:0 8px 8px 0}
-.att small{display:block;font-family:'Public Sans',sans-serif;font-size:12px;color:var(--muted);letter-spacing:.04em}
-.mtbtn{border:1.5px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:4px 14px;font-weight:700;font-size:15px;margin-top:10px}
+.att{margin-top:8px;border-left:3px solid var(--gold);padding:4px 10px;font-family:'Instrument Serif',serif;font-size:var(--fb);color:var(--paper);background:rgba(226,181,83,.06);border-radius:0 8px 8px 0}
+.att small{display:block;font-family:'Public Sans',sans-serif;font-size:var(--fl);color:var(--muted);letter-spacing:.04em}
+.mtbtn{border:1.5px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:4px 14px;font-weight:700;font-size:var(--fb);margin-top:10px}
 /* red flags */
 .rfrow{grid-template-columns:52px 170px 250px 1fr}
-.rfrow .rsn{margin-top:6px;font-size:14px;color:var(--muted)}
-.rfrow .rsn .chip{font-size:13px;padding:2px 10px;color:var(--paper)}
+.rfrow .rsn{margin-top:6px;font-size:var(--fl);color:var(--muted)}
+.namesbtn{border:1.5px solid var(--orange);color:var(--orange);background:transparent;border-radius:999px;padding:3px 14px;font-weight:700;font-size:var(--fl)}
+.rfrow .rsn .chip{font-size:var(--fl);padding:2px 10px;color:var(--paper)}
 /* own field */
 .own{display:grid;grid-template-columns:90px 170px 220px 150px 170px 1fr;gap:14px;align-items:center;padding:8px 10px;border-bottom:1px dashed var(--line)}
-.own.hd{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px;color:var(--gold);border-bottom:1px solid var(--line)}
+.own.hd{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:var(--fl);color:var(--gold);border-bottom:1px solid var(--line)}
 .own .pnum{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px}
 .own .who{display:flex;align-items:center;gap:10px;font-family:'Instrument Serif',serif;font-size:26px}
 .own .who .ph{width:38px;height:48px;border-radius:7px;font-size:18px}
@@ -245,7 +258,7 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .div:before{content:'';position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--line)}
 .div i{position:absolute;top:5px;height:16px;border-radius:4px}
 .div i.up{background:var(--blue)} .div i.dn{background:var(--orange)}
-.dtxt{font-size:15px;margin-top:4px;color:var(--muted)} .dtxt b{color:var(--paper)}
+.dtxt{font-size:var(--fb);margin-top:4px;color:var(--muted)} .dtxt b{color:var(--paper)}
 .frame{font-family:'Instrument Serif',serif;font-size:28px;color:var(--gold);margin-top:4px}
 /* cliché eye */
 .ehist{display:grid;grid-template-columns:repeat(10,1fr) 1fr;gap:10px;align-items:end;height:260px;margin-top:14px;padding:0 4px}
@@ -254,21 +267,21 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .ehist .col.dash i{background:#4a5266}
 .ehist .col b{font-family:'Barlow Condensed',sans-serif;font-size:24px;margin-bottom:4px}
 .ehist .col.med i{box-shadow:0 0 0 2px var(--paper)}
-.eaxis{display:grid;grid-template-columns:repeat(10,1fr) 1fr;gap:10px;padding:6px 4px 0;font-size:14px;color:var(--muted);text-align:center;border-top:1.5px solid var(--line)}
+.eaxis{display:grid;grid-template-columns:repeat(10,1fr) 1fr;gap:10px;padding:6px 4px 0;font-size:var(--fl);color:var(--muted);text-align:center;border-top:1.5px solid var(--line)}
 .optbox{border:1.5px dashed var(--orange);border-radius:14px;padding:12px 16px;margin-top:14px}
 .optbox .tgl{border:2px solid var(--orange);background:transparent;color:var(--orange);border-radius:10px;padding:7px 16px;font-weight:700}
 .optbox .tgl[aria-pressed=true]{background:var(--orange);color:var(--ink)}
 .top5{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-.top5 .t{background:var(--panel2);border-radius:12px;padding:8px 16px;font-size:20px;display:flex;gap:12px;align-items:baseline}
+.top5 .t{background:var(--panel2);border-radius:12px;padding:8px 16px;font-size:var(--fb);display:flex;gap:12px;align-items:baseline}
 .top5 .t .r{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;color:var(--gold)}
 .top5 .t .s{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:24px;color:var(--amber)}
 .misses{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
-.miss{display:grid;grid-template-columns:1fr 110px;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:16px}
+.miss{display:grid;grid-template-columns:1fr 110px;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:var(--fb)}
 .miss small{color:var(--muted)}
 /* flag catch */
-.fc{width:100%;border-collapse:collapse;font-size:18px;margin-top:8px}
+.fc{width:100%;border-collapse:collapse;font-size:var(--fb);margin-top:8px}
 .fc th,.fc td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:center}
-.fc th{font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:14px;color:var(--gold)}
+.fc th{font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:var(--fl);color:var(--gold)}
 .fc td:first-child,.fc th:first-child{text-align:left}
 .fc td.n{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px}
 .fc tr.cls td{border-top:2px solid var(--gold);font-weight:700}
@@ -278,17 +291,17 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .fixcard.ok{border-color:var(--green)}
 .fixcard .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .fixcard .who{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:.04em}
-.fixcard .who small{font-family:'Public Sans',sans-serif;font-weight:500;color:var(--muted);font-size:14px;margin-left:8px;letter-spacing:0}
+.fixcard .who small{font-family:'Public Sans',sans-serif;font-weight:500;color:var(--muted);font-size:var(--fl);margin-left:8px;letter-spacing:0}
 .fixpair{display:grid;grid-template-columns:1fr 40px 1fr;gap:12px;align-items:stretch;margin-top:8px}
-.fixpair .o,.fixpair .n{border-radius:10px;padding:10px 14px;font-size:18px;line-height:1.45}
+.fixpair .o,.fixpair .n{border-radius:10px;padding:10px 14px;font-size:var(--fb);line-height:1.45}
 .fixpair .o{background:rgba(239,233,221,.04);color:var(--muted);border:1.5px dashed var(--line)}
 .fixpair .n{background:var(--panel2);border:1.5px solid var(--line)}
 .fixpair .arr{display:grid;place-items:center;font-size:26px;color:var(--gold)}
 .fixpair .lab{display:block;margin-bottom:4px}
 .ticks2{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.tick{border-radius:999px;padding:3px 11px;font-size:14px;font-weight:700;background:var(--panel2)}
+.tick{border-radius:999px;padding:3px 11px;font-size:var(--fl);font-weight:700;background:var(--panel2)}
 .tick.y{color:var(--green);background:rgba(108,196,154,.12)} .tick.n{color:var(--orange);background:rgba(240,138,85,.12)} .tick.w{color:var(--muted)}
-.projbtn{border:2px solid var(--gold);background:var(--gold);color:var(--ink);border-radius:10px;padding:7px 16px;font-weight:700;font-size:15px}
+.projbtn{border:2px solid var(--gold);background:var(--gold);color:var(--ink);border-radius:10px;padding:7px 16px;font-weight:700;font-size:var(--fb)}
 .assign{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .assign .chip.got{border-color:var(--green);color:var(--green)}
 .proj{position:fixed;inset:0;background:rgba(5,7,12,.94);display:none;flex-direction:column;justify-content:center;z-index:95;padding:50px 90px}
@@ -303,9 +316,9 @@ table.mx{border-collapse:separate;border-spacing:4px;width:100%}
 .controls label.tog input{width:auto;accent-color:var(--gold)}
 .controls .fixwrap{display:flex;gap:8px;align-items:center}
 .controls .fixwrap[hidden]{display:none}
-@media (max-width:1400px){ .controls .xl{display:none} nav.tabs button{padding:6px 10px;font-size:13px} .controls button{padding:7px 10px;font-size:13px} .mu{grid-template-columns:1fr 250px} .mtx{font-size:17px}
-  .own{grid-template-columns:70px 140px 190px 120px 140px 1fr} .rfrow{grid-template-columns:44px 130px 200px 1fr} .ehist{height:220px} .fixpair .o,.fixpair .n{font-size:16px} .proj .pn{font-size:38px} }
-@media (max-height:860px){ .stage{padding:10px 20px 8px} nav.tabs{margin-top:8px} main{margin-top:8px} .mtx{font-size:16px;padding:4px 10px} .mu{margin-bottom:3px} .para{margin-top:6px} .mthead{margin-top:6px} .mthead .ph{width:40px;height:50px} .mthead .nm{font-size:28px}
+@media (max-width:1400px){ .controls .xl{display:none} nav.tabs button{padding:6px 10px;font-size:13px} .controls button{padding:7px 10px;font-size:13px} .mu{grid-template-columns:1fr 250px}
+  .own{grid-template-columns:70px 140px 190px 120px 140px 1fr} .rfrow{grid-template-columns:44px 130px 200px 1fr} .ehist{height:220px} .fixpair .o,.fixpair .n{font-size:var(--fb)} .proj .pn{font-size:38px} }
+@media (max-height:860px){ .stage{padding:10px 20px 8px} nav.tabs{margin-top:8px} main{margin-top:8px} .mtx{padding:3px 10px} .mu{margin-bottom:3px} .para{margin-top:6px} .mthead{margin-top:6px} .mthead .ph{width:40px;height:50px} .mthead .nm{font-size:28px}
   .kpi .v{font-size:46px} .pbox{min-height:96px} .own{padding:4px 10px} .own .num{font-size:24px} .ehist{height:180px} .controls{margin-top:6px} }
 </style>
 </head>
@@ -452,7 +465,7 @@ const panelsWithMembers = () => [...new Set(D.individuals.map(m => String(m.pane
 /* ---------- tabs & views ---------- */
 const TABS = [['live', 'Joined'], ['lb', 'Leaderboard'], ['mx', 'Nominations'], ['agr', 'Agreement'], ['apps', 'Applicants'], ['mt', 'Marked text'], ['rf', 'Red flags'],
   ['own', 'Own field'], ['eye', 'Cliché eye'], ['dec', 'Decision'], ['notes', 'Designer’s notes'], ['fix', 'Fix-it gallery']];
-let view = 'live', lbBy = 'panel', autoTabbed = '', mtFile = C[0].id, eyeTop = false;
+let view = 'live', lbBy = 'panel', autoTabbed = '', mtFile = C[0].id, eyeTop = false, rfAll = false, rfOpen = new Set();
 function renderTabs(){ $('#tabs').innerHTML = TABS.map(([k, t]) => '<button data-v="' + k + '" aria-selected="' + (view === k) + '">' + t + '</button>').join(''); document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => { view = b.dataset.v; render(); }); }
 function nextPhase(){ const ph = D.state.phase; return ({ lobby: 'r1', preview: 'r1', r1: 'r2', r2: 'r3', r3: D.notes ? 'fix' : '', done: D.notes ? 'fix' : '' })[ph] || ''; }
 function renderPhasebar(){
@@ -468,8 +481,16 @@ function render(){
   renderTabs(); renderPhasebar();
   const keepScroll = $('#main').scrollTop;
   const fn = { live: vLive, lb: vLb, mx: vMx, agr: vAgr, apps: vApps, mt: vMt, rf: vRf, own: vOwn, eye: vEye, dec: vDec, notes: vNotes, fix: vFix }[view];
-  $('#main').innerHTML = fn(); bindView(); $('#main').scrollTop = keepScroll;
+  $('#main').innerHTML = fn(); bindView(); fitLb(); $('#main').scrollTop = keepScroll;
 }
+/* ten leaderboard rows share the free height, so the 10th never sits under the control bar */
+function fitLb(){
+  const box = $('#lbrows'); if (!box) return;
+  const m = $('#main'), avail = m.getBoundingClientRect().bottom - (box.getBoundingClientRect().top + m.scrollTop) - 4;
+  const rh = Math.max(30, Math.min(84, Math.floor(avail / 10)));
+  box.style.setProperty('--rh', rh + 'px'); box.classList.toggle('tight', rh < 50);
+}
+window.addEventListener('resize', () => render());
 function vLive(){
   const { ind, pan } = stats(), joined = D.individuals.length, ph = D.state.phase;
   const marks = D.individuals.reduce((a, m) => a + Object.keys(m.marks || {}).length, 0), readers = D.individuals.filter(m => openedFiles(m).size).length;
@@ -488,16 +509,16 @@ function vLive(){
         return '<div class="m"><span>' + esc(m.name) + (head && head.toLowerCase() === m.name.toLowerCase() ? ' ★' : '') + '</span><span><span class="st">' + o + ' read · ' + k + ' marks</span> ' + (m.order ? '<span class="ok">✓</span>' : '<span class="no">…</span>') + '</span></div>'; }).join('') : '<div class="m"><span class="no">nobody yet</span></div>') +
       (sub ? '<div class="noms">' + sub.order.slice(0, 3).map(id => face(BYID[id])).join('') + '</div>' : '') + '</div>';
   }
-  return h + '</div><p style="color:var(--muted);margin-top:10px;font-size:14px">read = files opened · marks = sentences marked ✓ ✗ 🚩 · ✓ = Round 1 ranking sent · ★ = head of panel. ' +
+  return h + '</div><p style="color:var(--muted);margin-top:10px;font-size:var(--fl)">read = files opened · marks = sentences marked ✓ ✗ 🚩 · ✓ = Round 1 ranking sent · ★ = head of panel. ' +
     (ph === 'preview' ? 'Preview is homework: students read and mark tonight; ranking opens when Round 1 starts in class. ' : '') + 'The class results stay off screen until Round 3, so panels are not influenced.</p>';
 }
 function vLb(){
   const { S, ind, pan } = stats(); const by = (lbBy === 'panel' && pan.length) ? 'panel' : 'ind';
   const rows = ordered(S, by), max = Math.max(1, ...rows.map(r => by === 'ind' ? r.ip : r.pp));
-  let h = '<div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab">Consolidated leaderboard</div><div style="color:var(--muted);font-size:15px">1st = 10 points, 2nd = 9 … 10th = 1. ' + (by === 'panel' ? pan.length + ' panel rankings' : ind.length + ' individual rankings') + '. 🚩 = students who marked a concern in that file.</div></div>' +
+  let h = '<div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab">Consolidated leaderboard</div><div style="color:var(--muted);font-size:var(--fb)">1st = 10 points, 2nd = 9 … 10th = 1. ' + (by === 'panel' ? pan.length + ' panel rankings' : ind.length + ' individual rankings') + '. 🚩 = students who marked a concern in that file.</div></div>' +
     '<div class="seg"><button data-lb="panel" aria-pressed="' + (by === 'panel') + '">Panel points</button><button data-lb="ind" aria-pressed="' + (by === 'ind') + '">Round 1 points</button></div></div>';
   if (!ind.length) return h + '<div class="empty">No rankings yet.</div>';
-  h += '<div style="margin-top:10px">' + rows.map((r, i) => {
+  h += '<div id="lbrows" style="margin-top:8px">' + rows.map((r, i) => {
     const v = by === 'ind' ? r.ip : r.pp, c = BYID[r.id];
     return '<div class="lbrow' + (i < 3 ? ' r' + (i + 1) : '') + (i === 2 ? ' cutline' : '') + '" data-c="' + r.id + '"><div class="rk">' + (i + 1) + '</div>' + face(c) + '<div class="nm">' + esc(c.name) + '<span class="fac">' + esc(c.faculty) + '</span></div>' +
       '<div class="track"><i style="width:' + Math.round(v / max * 100) + '%"></i></div><div class="pt">' + v + '</div><div class="tags">' +
@@ -526,7 +547,7 @@ function vAgr(){
     return { ...r, ks, mn, mx, mean, imean, spread: mx - mn };
   }).filter(r => r.ks.length).sort((a, b) => a.mean - b.mean);
   const x = r => ((r - 1) / 9 * 100).toFixed(1) + '%';
-  let h = '<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="lab">Agreement and disagreement</div><div style="color:var(--muted);font-size:15px">Gold dots: ' + (usePanels ? 'each panel’s rank' : 'each student’s rank') + '. Blue dots below: every student’s Round 1 rank. Spread ≤ 2 places = Agree, ≥ 6 = Split, otherwise Mixed.</div></div></div>';
+  let h = '<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="lab">Agreement and disagreement</div><div style="color:var(--muted);font-size:var(--fb)">Gold dots: ' + (usePanels ? 'each panel’s rank' : 'each student’s rank') + '. Blue dots below: every student’s Round 1 rank. Spread ≤ 2 places = Agree, ≥ 6 = Split, otherwise Mixed.</div></div></div>';
   h += '<div class="ticks" style="margin-top:12px"><span></span><div class="t">' + [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => '<span>' + n + '</span>').join('') + '</div><span></span></div>';
   rows.forEach(r => {
     const a = agreementOf(r.spread), verdict = '<span class="verdict ' + (a === 'Agree' ? 'agree' : a === 'Split' ? 'split' : '') + '"' + (a === 'Mixed' ? ' style="color:var(--muted)"' : '') + '>' + a + '</span>';
@@ -535,14 +556,14 @@ function vAgr(){
       r.iranks.map(k => '<div class="doti" style="left:' + x(k) + '"></div>').join('') + '</div><div>' + verdict + '</div></div>';
   });
   const moved = usePanels ? rows.filter(r => r.imean != null && r.pranks.length).map(r => ({ id: r.id, d: r.imean - r.mean })).sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 3) : [];
-  if (moved.length) h += '<div class="box" style="margin-top:14px"><div class="lab">Did discussion change minds?</div><p style="font-size:18px;margin-top:6px">' + moved.map(m => '<b>' + esc(BYID[m.id].name) + '</b> moved ' + (m.d > 0 ? 'up ' : 'down ') + Math.abs(m.d).toFixed(1) + ' places from Round 1 to the panels').join(' · ') + '.</p></div>';
+  if (moved.length) h += '<div class="box" style="margin-top:14px"><div class="lab">Did discussion change minds?</div><p style="font-size:var(--fb);margin-top:6px">' + moved.map(m => '<b>' + esc(BYID[m.id].name) + '</b> moved ' + (m.d > 0 ? 'up ' : 'down ') + Math.abs(m.d).toFixed(1) + ' places from Round 1 to the panels').join(' · ') + '.</p></div>';
   return h;
 }
 function vApps(){
   const pr = SL.programme || {};
   return '<div class="lab">Click an applicant to read the file and every panel’s reasons, with the sentence each reason points to</div><div class="pick" style="margin-top:14px">' + C.map(c => '<button data-c="' + c.id + '">' + face(c) + '<b>' + esc(c.name) + '</b><small>' + esc(c.faculty) + '</small></button>').join('') + '</div>' +
-    '<div class="box" style="margin-top:16px"><div class="lab">' + esc(pr.name || SL.meta.programme) + (pr.university ? ' · ' + esc(pr.university) : '') + '</div><p style="font-size:19px;margin-top:6px;line-height:1.5">' + esc(pr.brief || '') + '</p>' +
-    (pr.features && pr.features.length ? '<ul style="margin:8px 0 0 22px;font-size:19px;line-height:1.6">' + pr.features.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '') + '</div>';
+    '<div class="box" style="margin-top:16px"><div class="lab">' + esc(pr.name || SL.meta.programme) + (pr.university ? ' · ' + esc(pr.university) : '') + '</div><p style="font-size:var(--fb);margin-top:6px;line-height:1.5">' + esc(pr.brief || '') + '</p>' +
+    (pr.features && pr.features.length ? '<ul style="margin:8px 0 0 22px;font-size:var(--fb);line-height:1.6">' + pr.features.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '') + '</div>';
 }
 /* ---------- Marked text: class marks per sentence, key outlined after Reveal ---------- */
 function markCounts(fid){
@@ -563,21 +584,22 @@ function vMt(){
     const k = cnt[u.id], kl = key && key[u.id], km = kl ? KEYMARK[kl.label] : '';
     const dom = ['e', 'c', 'f'].reduce((a, t) => k[t] > (a ? k[a] : 0) ? t : a, ''), alpha = dom && n ? (0.06 + k[dom] / n * 0.34).toFixed(3) : 0;
     const why = Object.entries(k.r).sort((a, b) => b[1] - a[1]).map(([ri, c]) => (REASONS[ri] || 'Concern') + ' ×' + c).join(' · ');
-    return '<div class="mu' + (km ? ' key-' + km : '') + '" data-unit="' + u.id + '"><div class="mtx" style="' + (dom ? 'background:rgba(' + RGB[dom] + ',' + alpha + ')' : '') + '">' + (u.kind === 'a' ? '<span class="lno">LINE ' + u.n + '</span>' : '') + esc(u.text) + (kl ? keyTag(kl) : '') + '</div>' +
+    return '<div class="mu' + (km ? ' key-' + km : '') + '" data-unit="' + u.id + '"><div class="mtx" style="' + (dom ? 'background:rgba(' + RGB[dom] + ',' + alpha + ')' : '') + '">' + (dom ? '<span class="domi d-' + dom + '" title="Most common mark">' + MARK[dom].icon + '</span>' : '') + (u.kind === 'a' ? '<span class="lno">LINE ' + u.n + '</span>' : '') + esc(u.text) + (kl ? keyTag(kl) : '') + '</div>' +
       '<div class="mbars">' + ['e', 'c', 'f'].map(t => '<div class="mb mb-' + t + (k[t] ? '' : ' z') + '"' + (t === 'f' && why ? ' title="' + esc(why) + '"' : '') + '><span>' + MARK[t].icon + '</span><div class="trk"><i style="width:' + (n ? Math.round(k[t] / n * 100) : 0) + '%"></i></div><b>' + k[t] + '</b></div>').join('') + '</div></div>';
   };
-  let h = '<div class="vhead"><div><div class="lab">Marked text · how the class marked each sentence</div><div class="sub2">Shade = the mark most students gave. Bars = how many of the ' + n + ' students who opened this file marked it ✓ Evidence, ✗ Cliché or 🚩 Concern.' +
-    (key ? ' Outline = the designer’s key.' : ' The designer’s key is outlined here after Reveal.') + '</div></div></div>';
-  h += '<div class="fpick">' + C.map(c => '<button data-mtf="' + c.id + '" aria-pressed="' + (c.id === mtFile) + '">' + face(c) + '<span>' + esc(c.name) + '</span></button>').join('') + '</div>';
-  h += '<div class="mthead">' + face(f) + '<div><div class="nm">' + esc(f.name) + '</div><span class="fac">' + esc(f.faculty) + ' · opened by ' + n + ' student' + (n === 1 ? '' : 's') + ' · ✓ ' + tot.e + ' · ✗ ' + tot.c + ' · 🚩 ' + tot.f + '</span></div>' +
-    '<div class="mtlegend"><span><i style="background:var(--green)"></i>✓ Evidence</span><span><i style="background:var(--amber)"></i>✗ Cliché</span><span><i style="background:var(--red)"></i>🚩 Concern</span>' + (key ? '<span><i style="background:transparent;border:2px solid var(--paper)"></i>Key outline</span>' : '') + '</div></div>';
+  let h = '<div class="vhead"><div><div class="lab">Marked text · how the class marked each sentence</div><div class="sub2">Bars: how many of the ' + n + ' students who opened this file marked it ✓ Evidence, ✗ Cliché or 🚩 Concern. Shade and icon: the most common mark.' +
+    (key ? ' Outline: the designer’s key.' : ' The designer’s key is outlined after Reveal.') + '</div></div></div>';
+  h += '<div class="mtrow"><div class="fpick">' + C.map(c => '<button data-mtf="' + c.id + '" aria-pressed="' + (c.id === mtFile) + '">' + face(c) + '<span>' + esc(c.name) + '</span></button>').join('') + '</div>' +
+    '<div class="mtinfo"><b>' + esc(f.name) + '</b> · ' + esc(f.faculty) + ' · opened by ' + n + ' · ✓ ' + tot.e + ' · ✗ ' + tot.c + ' · 🚩 ' + tot.f + '</div></div>';
   h += parasOf(f).map(p => '<div class="para"><div class="pl">¶ ' + p.n + '</div><div>' + p.units.map(u => row(UNITS[u.id])).join('') + '</div></div>').join('');
   h += '<div class="para"><div class="pl">Activity list</div><div>' + f.activities.map(u => row(UNITS[u.id])).join('') + '</div></div>';
   return h;
 }
 function vRf(){
   const readers = D.individuals.filter(m => openedFiles(m).size || m.order), { S, pan } = stats();
-  let h = '<div class="vhead"><div><div class="lab">Red flags · who marked a 🚩 concern in which file</div><div class="sub2">Each name is a student who marked at least one sentence or activity line in that file 🚩, with her panel and the rank she gave. Gold = she marked a concern but still ranked the file in her top 3.</div></div>' + namesMark() + '</div>';
+  const anyNames = rfAll || rfOpen.size;
+  let h = '<div class="vhead"><div><div class="lab">Red flags · how many students marked a 🚩 concern in each file</div><div class="sub2">Names stay hidden until you click “Names” on a row. Gold name = she marked a concern but still ranked the file in her top 3.</div></div>' +
+    '<div style="display:flex;gap:10px;align-items:center">' + (anyNames ? namesMark() : '') + '<button class="mtbtn" id="rfAll" style="margin-top:0">' + (rfAll ? 'Hide all names' : 'Show all names') + '</button></div></div>';
   if (!readers.length) return h + '<div class="empty">Nobody has opened a file yet. Concern marks arrive as students read.</div>';
   const by = {}, rs = {}; C.forEach(c => { by[c.id] = []; rs[c.id] = {}; });
   readers.forEach(m => {
@@ -593,11 +615,11 @@ function vRf(){
     const s = S[c.id], placed = s.sch + s.off, reasons = Object.entries(rs[c.id]).sort((a, b) => b[1] - a[1]);
     return '<div class="rfrow">' + face(c).replace('<span class="ph', '<span data-c="' + c.id + '" class="ph') + '<div class="nm" data-c="' + c.id + '">' + esc(c.name) + '<span class="fac">' + esc(c.faculty) + '</span></div>' +
       '<div class="ct">🚩 ' + l.length + '<small>of ' + s.opened + ' who opened it' + (pan.length ? '<br>placed by ' + placed + ' of ' + pan.length + ' panels' : '') + '</small><div class="bar"><i style="width:' + Math.round(l.length / Math.max(1, s.opened) * 100) + '%"></i></div></div>' +
-      '<div><div class="chips">' + l.map(f => '<span class="chip' + (f.r && f.r <= 3 ? ' hi' : '') + '">' + esc(f.name) + '<small>P' + esc(f.panel || '?') + (f.r ? ' · ranked ' + ord(f.r) : ' · not ranked') + (f.n > 1 ? ' · ' + f.n + ' 🚩' : '') + '</small></span>').join('') + '</div>' +
+      '<div>' + (rfAll || rfOpen.has(c.id) ? '<div class="chips">' + l.map(f => '<span class="chip' + (f.r && f.r <= 3 ? ' hi' : '') + '">' + esc(f.name) + '<small>P' + esc(f.panel || '?') + (f.r ? ' · ranked ' + ord(f.r) : ' · not ranked') + (f.n > 1 ? ' · ' + f.n + ' 🚩' : '') + '</small></span>').join('') + (rfAll ? '' : '<button class="namesbtn" data-rfn="' + c.id + '">Hide</button>') + '</div>' : '<button class="namesbtn" data-rfn="' + c.id + '">Names (' + l.length + ')</button>') +
       '<div class="rsn">Reasons used: ' + reasons.map(([i, n]) => '<span class="chip">' + esc(REASONS[i] || 'Concern') + '<small>×' + n + '</small></span>').join(' ') + '</div></div></div>';
   }).join('') + '</div>';
-  if (clean.length) h += '<p style="margin-top:12px;font-size:17px"><span class="lab">No concern marked</span> ' + clean.map(c => esc(c.name)).join(' · ') + '</p>';
-  if (none.length) h += '<p style="margin-top:6px;font-size:17px"><span class="lab">Flagged nothing</span> ' + none.map(esc).join(' · ') + '</p>';
+  if (clean.length) h += '<p style="margin-top:12px;font-size:var(--fb)"><span class="lab">No concern marked</span> ' + clean.map(c => esc(c.name)).join(' · ') + '</p>';
+  if (none.length) h += '<p style="margin-top:6px;font-size:var(--fb)"><span class="lab">Flagged nothing</span> ' + (rfAll ? none.map(esc).join(' · ') : none.length + ' student' + (none.length > 1 ? 's' : '') + ' (names with “Show all names”)') + '</p>';
   return h;
 }
 /* ---------- Own field: the panel's rank for its own profession's file vs the other panels ---------- */
@@ -619,19 +641,19 @@ function vOwn(){
     const c = BYID[r.fileId], d = r.diff, w = d == null ? 0 : Math.min(50, Math.abs(d) / 9 * 50);
     const txt = d == null ? 'Only one panel so far' : Math.abs(d) < 0.5 ? '<b>About the same</b> as the other panels' : '<b>' + Math.abs(d).toFixed(1) + ' places ' + (d > 0 ? 'higher' : 'lower') + '</b> than the other panels';
     h += '<div class="own"><span class="pnum">P' + esc(r.panel) + '</span><span>' + esc(r.faculty) + '</span><span class="who" data-c="' + r.fileId + '">' + face(c) + esc(c.name) + '</span>' +
-      '<span class="num">' + ord(r.panelRank) + '</span><span class="num">' + (r.othersAvg == null ? '—' : r.othersAvg.toFixed(1)) + '<small style="font-size:14px;color:var(--muted);font-family:Public Sans,sans-serif"> ' + (r.n ? ' from ' + r.n + ' panel' + (r.n > 1 ? 's' : '') : '') + '</small></span>' +
+      '<span class="num">' + ord(r.panelRank) + '</span><span class="num">' + (r.othersAvg == null ? '—' : r.othersAvg.toFixed(1)) + '<small style="font-size:var(--fl);color:var(--muted);font-family:Public Sans,sans-serif"> ' + (r.n ? ' from ' + r.n + ' panel' + (r.n > 1 ? 's' : '') : '') + '</small></span>' +
       '<span><div class="div">' + (d == null || Math.abs(d) < 0.05 ? '' : '<i class="' + (d > 0 ? 'up' : 'dn') + '" style="' + (d > 0 ? 'left:50%' : 'right:50%') + ';width:' + w.toFixed(1) + '%"></i>') + '</div><div class="dtxt">' + txt + '</div></span></div>';
   });
   h += '</div>';
   const ds = rows.filter(r => r.diff != null).map(r => r.diff);
   if (ds.length >= 2) { const m = ds.reduce((a, b) => a + b, 0) / ds.length;
-    h += '<div class="box" style="margin-top:14px"><div class="lab">Across ' + ds.length + ' panels</div><p style="font-size:19px;margin-top:6px">On average, panels ranked their own field <b>' + Math.abs(m).toFixed(1) + ' places ' + (m >= 0 ? 'higher' : 'lower') + '</b> than the other panels did. Blue = kinder to their own field, orange = stricter. Ask: what did you know about this field that the others did not, and did it help or get in the way?</p></div>'; }
+    h += '<div class="box" style="margin-top:14px"><div class="lab">Across ' + ds.length + ' panels</div><p style="font-size:var(--fb);margin-top:6px">On average, panels ranked their own field <b>' + Math.abs(m).toFixed(1) + ' places ' + (m >= 0 ? 'higher' : 'lower') + '</b> than the other panels did. Blue = kinder to their own field, orange = stricter. Ask: what did you know about this field that the others did not, and did it help or get in the way?</p></div>'; }
   return h;
 }
 /* ---------- Cliché eye: class distribution of scores (server, from Round 3) ---------- */
 function vEye(){
   const sc = D.scores, late = ['r3', 'fix', 'done'].includes(D.state.phase);
-  let h = '<div class="vhead"><div><div class="lab">Cliché eye · how well the class spotted the clichés</div><div class="sub2">Each student’s score (0–100) compares her ✗ Cliché marks with the designer’s cliché key, over the files she opened: hits, false marks and misses. — = she made no ✗ marks, or her files held no keyed cliché.</div></div>' + (eyeTop ? namesMark() : '') + '</div>';
+  let h = '<div class="vhead"><div><div class="lab">Cliché eye · how well the class spotted the clichés</div><div class="sub2">Each ranked student’s score (0–100) compares her ✗ Cliché marks with the designer’s cliché key, over the files she opened: hits, false marks and misses. — = she made no ✗ marks, or her files held no keyed cliché.</div></div>' + (eyeTop ? namesMark() : '') + '</div>';
   if (!sc) return h + '<div class="empty">' + (late ? 'No scores yet: the server has no key (Notes.gs) or scoring code.' : 'Scores open when Round 3 starts.') + '</div>';
   const nameOf = k => { const m = D.individuals.find(x => String(x.name).toLowerCase() === k); return m ? m.name : k; };
   const list = Object.entries(sc).map(([k, v]) => ({ name: nameOf(k), score: v && typeof v.score === 'number' ? v.score : null }));
@@ -639,19 +661,26 @@ function vEye(){
   const median = !nums.length ? null : nums.length % 2 ? nums[(nums.length - 1) / 2] : (nums[nums.length / 2 - 1] + nums[nums.length / 2]) / 2;
   const bands = Array(10).fill(0); nums.forEach(s => bands[Math.min(9, Math.floor(s / 10))]++);
   const mx = Math.max(1, dash, ...bands), mb = median == null ? -1 : Math.min(9, Math.floor(median / 10));
-  h += '<div class="kpis" style="grid-template-columns:repeat(3,1fr);margin-top:10px"><div class="box kpi"><div class="lab">Students with a score</div><div class="v">' + nums.length + '<small> / ' + list.length + '</small></div></div>' +
+  h += '<div class="kpis" style="grid-template-columns:repeat(3,1fr);margin-top:10px"><div class="box kpi"><div class="lab">Ranked students with a score</div><div class="v">' + nums.length + '<small> / ' + list.length + '</small></div></div>' +
     '<div class="box kpi"><div class="lab">Class median</div><div class="v">' + (median == null ? '—' : Math.round(median)) + '</div></div>' +
     '<div class="box kpi"><div class="lab">No score (—)</div><div class="v">' + dash + '</div></div></div>';
   h += '<div class="ehist">' + bands.map((n, i) => '<div class="col' + (i === mb ? ' med' : '') + '"><b>' + (n || '') + '</b><i style="height:' + (n / mx * 100).toFixed(1) + '%"></i></div>').join('') +
     '<div class="col dash"><b>' + (dash || '') + '</b><i style="height:' + (dash / mx * 100).toFixed(1) + '%"></i></div></div>' +
     '<div class="eaxis">' + bands.map((n, i) => '<span>' + (i * 10) + '–' + (i === 9 ? 100 : i * 10 + 9) + '</span>').join('') + '<span>—</span></div>';
-  if (median != null) h += '<p style="color:var(--muted);font-size:14px;margin-top:6px">The outlined bar holds the median.</p>';
-  h += '<div class="optbox"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><div class="lab" style="color:var(--orange)">Optional · top five names</div><div style="color:var(--muted);font-size:14px">Off by default. Turn on only if you have decided to show names. Ties share a place (1, 2, 2, 4).</div></div>' +
+  if (median != null) h += '<p style="color:var(--muted);font-size:var(--fl);margin-top:6px">The outlined bar holds the median.</p>';
+  h += '<div class="optbox"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><div class="lab" style="color:var(--orange)">Optional · top five names</div><div style="color:var(--muted);font-size:var(--fl)">Off by default. Turn on only if you have decided to show names. At most five names, scores above 0 only; ties share a place (1, 2, 2, 4).</div></div>' +
     '<button class="tgl" id="eyeTop" aria-pressed="' + eyeTop + '">' + (eyeTop ? 'Hide top five' : 'Show top five') + '</button></div>';
   if (eyeTop) {
-    const sorted = list.filter(x => x.score != null).sort((a, b) => b.score - a.score || a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
-    const ranked = sorted.map(x => ({ ...x, rank: 1 + sorted.filter(y => y.score > x.score).length })).filter(x => x.rank <= 5);
-    h += '<div class="top5">' + (ranked.length ? ranked.map(x => '<div class="t"><span class="r">' + x.rank + '</span><span>' + esc(x.name) + '</span><span class="s">' + x.score + '</span></div>').join('') : '<span style="color:var(--muted)">No scores yet.</span>') + '</div>';
+    const sorted = list.filter(x => x.score != null && x.score > 0).sort((a, b) => b.score - a.score || a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+    const shown = []; let more = null;
+    for (let i = 0; i < sorted.length;) {
+      const grp = sorted.filter(x => x.score === sorted[i].score), place = i + 1;
+      if (place > 5) break;
+      if (shown.length + grp.length > 5) { more = { n: grp.length, place, score: grp[0].score }; break; }
+      grp.forEach(x => shown.push({ ...x, rank: place })); i += grp.length;
+    }
+    h += '<div class="top5">' + (shown.length ? shown.map(x => '<div class="t"><span class="r">' + x.rank + '</span><span>' + esc(x.name) + '</span><span class="s">' + x.score + '</span></div>').join('') : '<span style="color:var(--muted)">No scores above 0 yet.</span>') +
+      (more ? '<div class="t" style="color:var(--muted)">+' + more.n + ' more tied in ' + ord(more.place) + ' place (' + more.score + ')</div>' : '') + '</div>';
   }
   h += '</div>';
   if (D.notes) {
@@ -671,19 +700,19 @@ let pick = { offers: [], scholar: '' };
 function vDec(){
   const { S } = stats(); const d = D.state.decision;
   if (d && !pick.dirty) pick = { offers: d.offers.slice(), scholar: d.scholar };
-  return '<div class="lab">The committee’s final decision</div><p style="color:var(--muted);font-size:16px;margin-top:4px">Click three applicants to offer places. Click one of them again to give the scholarship (★). Then announce.</p>' +
+  return '<div class="lab">The committee’s final decision</div><p style="color:var(--muted);font-size:var(--fb);margin-top:4px">Click three applicants to offer places. Click one of them again to give the scholarship (★). Then announce.</p>' +
     '<div class="pick">' + C.map(c => { const on = pick.offers.includes(c.id), sch = pick.scholar === c.id, s = S[c.id];
-      return '<button data-pick="' + c.id + '" class="' + (sch ? 'sch' : on ? 'offer' : '') + '">' + face(c) + '<b>' + esc(c.name) + '</b><small>' + (sch ? '★ Scholarship' : on ? 'Place' : s.pp + ' panel pts') + '</small></button>'; }).join('') + '</div>' +
-    '<div style="display:flex;gap:10px;margin-top:16px"><button class="announce" id="announce" style="font-weight:700;font-size:18px;padding:12px 24px;border-radius:12px;border:0;background:var(--gold);color:var(--ink)"' + (pick.offers.length === 3 && pick.scholar ? '' : ' disabled') + '>Announce the decision</button>' +
+      return '<button data-pick="' + c.id + '" class="' + (sch ? 'sch' : on ? 'offer' : '') + '">' + face(c) + '<b>' + esc(c.name) + '</b><small>' + (sch ? '★ Scholarship' : on ? 'Place' : s.pp + ' panel pt' + (s.pp === 1 ? '' : 's')) + '</small></button>'; }).join('') + '</div>' +
+    '<div style="display:flex;gap:10px;margin-top:16px"><button class="announce" id="announce" style="font-weight:700;font-size:var(--fb);padding:12px 24px;border-radius:12px;border:0;background:var(--gold);color:var(--ink)"' + (pick.offers.length === 3 && pick.scholar ? '' : ' disabled') + '>Announce the decision</button>' +
     '<button id="clearPick" style="font-weight:700;padding:12px 18px;border-radius:12px;border:2px solid var(--line);background:transparent">Clear</button></div>' +
     (d ? '<p style="margin-top:10px;color:var(--green);font-weight:700">Announced: ' + d.offers.map(id => esc(BYID[id].name) + (id === d.scholar ? ' ★' : '')).join(', ') + '. Phones show it too.</p>' : '');
 }
 function vNotes(){
   const N = D.notes;
-  if (!N) return '<div class="box" style="text-align:center;padding:40px"><div class="big">The designer’s notes</div><p style="color:var(--muted);font-size:18px;margin-top:8px">Which file was built as the red flag, what each file was meant to show, the evidence / cliché / concern key and how many students caught the red flag. Reveal them after the committee has decided.</p>' +
-    '<button id="revealNotes" style="margin-top:18px;font-weight:700;font-size:18px;padding:12px 26px;border-radius:12px;border:0;background:var(--gold);color:var(--ink)">Reveal designer’s notes</button></div>';
+  if (!N) return '<div class="box" style="text-align:center;padding:40px"><div class="big">The designer’s notes</div><p style="color:var(--muted);font-size:var(--fb);margin-top:8px">Which file was built as the red flag, what each file was meant to show, the evidence / cliché / concern key and how many students caught the red flag. Reveal them after the committee has decided.</p>' +
+    '<button id="revealNotes" style="margin-top:18px;font-weight:700;font-size:var(--fb);padding:12px 26px;border-radius:12px;border:0;background:var(--gold);color:var(--ink)">Reveal designer’s notes</button></div>';
   const { S, ind, pan } = stats(), F = N.files || {}, rf = redFlagId(N);
-  let h = '<div class="box"><div class="lab">How it was designed</div><p style="font-size:19px;margin-top:6px">' + esc(N.design) + '</p>';
+  let h = '<div class="box"><div class="lab">How it was designed</div><p style="font-size:var(--fb);margin-top:6px">' + esc(N.design) + '</p>';
   if (rf && BYID[rf]) { const c = BYID[rf], s = S[rf];
     h += '<p class="big" style="margin-top:10px">🚩 ' + esc(c.name) + ' (' + esc(c.faculty) + '): concern marked by ' + s.flags + ' of ' + s.opened + ' readers · offered a place by ' + (s.sch + s.off) + ' of ' + pan.length + ' panels' + (s.sch ? ' (' + s.sch + ' for the scholarship)' : '') + '.</p>';
     const tr = (F[rf].triggers || []).filter(u => UNITS[u]);
@@ -693,7 +722,7 @@ function vNotes(){
   if (rf && BYID[rf]) {
     const fc = flagCatchOf(), cell = (x, k, cls) => '<td class="n ' + cls + '">' + ((x && x[k]) || 0) + '</td>';
     const panelsShown = [...new Set(Object.keys(fc.panels).concat(panelsWithMembers()))].filter(p => OWN[p]).sort((a, b) => a - b);
-    h += '<div class="box" style="margin-top:14px"><div class="lab">Flag catch · ' + esc(BYID[rf].name) + '’s file</div><div style="color:var(--muted);font-size:15px">Caught = a 🚩 (any reason) on one of the three trigger sentences. Counted separately: ranked the file 8th–10th without catching it, and offered it a place (her top 3). Students = those who sent a Round 1 ranking.</div>' +
+    h += '<div class="box" style="margin-top:14px"><div class="lab">Flag catch · ' + esc(BYID[rf].name) + '’s file</div><div style="color:var(--muted);font-size:var(--fb)">Caught = a 🚩 (any reason) on one of the three trigger sentences. Counted separately: ranked the file 8th–10th without catching it, and offered it a place (her top 3). Students = those who sent a Round 1 ranking.</div>' +
       '<table class="fc"><thead><tr><th>Panel</th><th>Students</th><th>🚩 Caught</th><th>Ranked 8–10, no flag</th><th>Offered a place</th><th>Panel’s rank</th></tr></thead><tbody>' +
       panelsShown.map(p => { const x = fc.panels[p] || {}, sub = D.panels.find(q => String(q.panel) === p && q.order), pr = sub ? sub.order.indexOf(rf) + 1 : 0;
         return '<tr><td>Panel ' + p + ' <span style="color:var(--muted)">' + esc(OWN[p]) + '</span></td><td class="n">' + (x.of || 0) + '</td>' + cell(x, 'caught', 'ok') + cell(x, 'rank810NoFlag', 'bad') + cell(x, 'offered', 'red') + '<td class="n">' + (pr ? ord(pr) : '—') + '</td></tr>'; }).join('') +
@@ -702,7 +731,7 @@ function vNotes(){
   h += '<table class="ntable" style="margin-top:14px"><thead><tr><th>Applicant</th><th>Designed as</th><th>Built to show</th><th>Strengths</th><th>Concerns</th><th>Ask the class</th></tr></thead><tbody>' +
     C.map(c => { const n = F[c.id] || {}; return '<tr class="' + (n.tier === 'redflag' ? 'rf' : '') + '"><td><b style="font-family:Instrument Serif,serif;font-size:24px;font-weight:400">' + esc(c.name) + '</b><br><span style="color:var(--muted)">' + esc(c.faculty) + ' · ' + esc(n.group || n.tier || '') + '</span></td>' +
       '<td>' + esc(n.headline || '') + (n.weakness ? '<br><span style="color:var(--muted)">Lasting weakness: ' + esc(n.weakness) + '</span>' : '') + '</td><td>' + esc(n.builtToShow || '') + '</td><td>' + esc(n.strengths || '') + '</td><td>' + esc(n.concerns || '') + '</td><td>' + esc(n.notice || '') + '</td></tr>'; }).join('') +
-    '</tbody></table><p style="color:var(--muted);margin-top:10px;font-size:15px">The key’s marks are outlined on every sentence in the Marked text tab. Fix-it is now available in the controls below.</p>' +
+    '</tbody></table><p style="color:var(--muted);margin-top:10px;font-size:var(--fb)">The key’s marks are outlined on every sentence in the Marked text tab. Fix-it is now available in the controls below.</p>' +
     '<button id="hideNotes" style="margin-top:12px;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid var(--line);background:transparent">Hide notes again</button>';
   return h;
 }
@@ -730,7 +759,7 @@ function fixList(){ return (D.fixes || []).filter(x => BYID[x.fileId]).slice().s
 function vFix(){
   const fa = D.state.fixAssign;
   let h = '<div class="vhead"><div><div class="lab">Fix-it gallery · each rewrite beside the original</div><div class="sub2">' +
-    (fa ? (fa.homework ? 'Set as homework: every student sends her own rewrite.' : 'In class: the head of each panel sends one rewrite.') + ' Each panel repairs one of the three weaker files (one paragraph ≤ 70 words, or one activity line ≤ 22 words).' : 'Fix-it opens after Reveal: press Fix-it in the controls below.') + '</div></div></div>';
+    (fa ? (fa.homework ? 'Set as homework: every student sends her own rewrite.' : 'In class: the head of each panel sends one rewrite.') + ' Each panel repairs one of the three weaker files (one paragraph ≤ 70 words, or one activity line ≤ 22 words).' : 'Reveal the designer’s notes first; the Fix-it control then appears below.') + '</div></div>' + (fa && (D.fixes || []).length ? namesMark() : '') + '</div>';
   if (!fa) return h + '<div class="empty">No Fix-it yet.</div>';
   const fixes = fixList(), got = new Set(fixes.map(x => String(x.panel)));
   h += '<div class="assign">' + panelsWithMembers().map(p => { const fid = fa.panels && fa.panels[p]; return fid && BYID[fid] ? '<span class="chip' + (got.has(p) ? ' got' : '') + '">P' + p + ' → ' + esc(BYID[fid].name) + '<small>' + (got.has(p) ? '✓ in' : 'waiting') + '</small></span>' : ''; }).join('') + '</div>';
@@ -754,6 +783,8 @@ function bindView(){
   document.querySelectorAll('[data-mtf]').forEach(b => b.onclick = () => { mtFile = b.dataset.mtf; render(); });
   document.querySelectorAll('[data-proj]').forEach(b => b.onclick = () => project(+b.dataset.proj));
   if ($('#eyeTop')) $('#eyeTop').onclick = () => { eyeTop = !eyeTop; render(); };
+  if ($('#rfAll')) $('#rfAll').onclick = () => { rfAll = !rfAll; rfOpen.clear(); render(); };
+  document.querySelectorAll('[data-rfn]').forEach(b => b.onclick = () => { const id = b.dataset.rfn; rfOpen.has(id) ? rfOpen.delete(id) : rfOpen.add(id); render(); });
   document.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => {
     const id = b.dataset.pick, o = pick.offers; pick.dirty = true;
     if (!o.includes(id)) { if (o.length < 3) o.push(id); }
@@ -776,7 +807,7 @@ function openApp(id){
   const hist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(k => s.iranks.filter(x => x === k).length), hm = Math.max(1, ...hist);
   const recs = Object.entries(s.recs).sort((a, b) => b[1] - a[1]);
   $('#mbox').innerHTML = '<button class="closex" id="closeModal" aria-label="Close">✕</button><div><div class="mhead">' + face(c) + '<div><div class="lab">Applicant · ' + esc(c.faculty) + '</div><div class="nm">' + esc(c.name) + '</div>' +
-    '<p style="margin-top:8px;font-size:17px;color:var(--muted)">' + s.ip + ' Round 1 points · ' + s.pp + ' panel points' + (s.flags ? ' · 🚩 marked by ' + s.flags + ' student' + (s.flags > 1 ? 's' : '') : '') + '</p>' +
+    '<p style="margin-top:8px;font-size:var(--fb);color:var(--muted)">' + s.ip + ' Round 1 points · ' + s.pp + ' panel points' + (s.flags ? ' · 🚩 marked by ' + s.flags + ' student' + (s.flags > 1 ? 's' : '') : '') + '</p>' +
     '<button class="mtbtn" data-mt="' + id + '">Show the class’s marks on this file</button></div></div>' +
     '<div class="ans ftext"><span class="lab">Personal statement</span>' + parasOf(c).map(p => '<p>' + p.units.map(u => esc(u.text)).join(' ') + '</p>').join('') + '</div>' +
     '<div class="ans"><span class="lab">Activity list</span>' + c.activities.map((u, i) => '<div class="aline"><b>' + (i + 1) + '</b><span>' + esc(u.text) + '</span></div>').join('') + '</div></div>' +
@@ -1069,12 +1100,12 @@ function showPodium(){
   const { S } = stats(); let top, title, sub;
   const d = D.state.decision;
   if (d && d.offers && d.offers.length === 3) {
-    top = [d.scholar].concat(d.offers.filter(x => x !== d.scholar)); title = 'The committee’s offers'; sub = '★ Scholarship and place · two places';
+    top = [d.scholar].concat(d.offers.filter(x => x !== d.scholar).sort((a, b) => S[b].pp - S[a].pp || S[b].ip - S[a].ip));   // the two places by panel points title = 'The committee’s offers'; sub = '★ Scholarship and place · two places';
   } else {
     const rows = ordered(S, D.panels.length ? 'panel' : 'ind'); if (!rows[0] || !(rows[0].pp || rows[0].ip)) return;
     top = rows.slice(0, 3).map(r => r.id); title = 'Class leaderboard · top three'; sub = 'By ' + (D.panels.length ? 'panel' : 'Round 1') + ' points';
   }
-  const lab = ['★ Scholarship', 'Place', 'Place'], val = id => D.panels.length ? S[id].pp + ' panel pts' : S[id].ip + ' pts';
+  const lab = ['★ Scholarship', 'Place', 'Place'], val = id => D.panels.length ? S[id].pp + ' panel pt' + (S[id].pp === 1 ? '' : 's') : S[id].ip + ' pt' + (S[id].ip === 1 ? '' : 's');
   $('#podTitle').textContent = title; $('#podSub').textContent = sub;
   const order = [1, 0, 2], cls = ['b2', 'b1', 'b3'], medal = ['2', '1', '3'];
   $('#plinks').innerHTML = order.map((idx, pos) => { const id = top[idx]; if (!id) return ''; const c = BYID[id];
@@ -1094,10 +1125,19 @@ async function setPhase(phase, m){
   try { const r = await api('POST', { action: 'phase', phase, minutes: m }); if (r.ok) { D.state = r.state; autoTabbed = phase; view = phase === 'r3' ? 'lb' : 'live'; } else alert(r.error); await poll(); render(); }
   catch (e) { alert('Could not reach the backend. Check API_URL / deployment.'); }
 }
-$('#pvBtn').onclick = () => setPhase('preview', 0);
-$('#r1Btn').onclick = () => setPhase('r1', minutes());
-$('#r2Btn').onclick = () => setPhase('r2', minutes());
-$('#r3Btn').onclick = () => setPhase('r3', minutes());
+const ORDER = ['lobby', 'preview', 'r1', 'r2', 'r3', 'fix', 'done'];
+function guard(btn, phase, go){   // a stray click must not send the class back: going backwards needs a second click
+  return () => {
+    const cur = D.state.phase === 'done' ? 'r3' : D.state.phase;
+    if (ORDER.indexOf(phase) >= ORDER.indexOf(cur) || btn.dataset.armed) { if (btn.dataset.armed) { delete btn.dataset.armed; btn.innerHTML = btn.dataset.html; } return go(); }
+    btn.dataset.armed = '1'; btn.dataset.html = btn.innerHTML; btn.textContent = 'Click again to go back';
+    setTimeout(() => { if (btn.dataset.armed) { delete btn.dataset.armed; btn.innerHTML = btn.dataset.html; } }, 5000);
+  };
+}
+$('#pvBtn').onclick = guard($('#pvBtn'), 'preview', () => setPhase('preview', 0));
+$('#r1Btn').onclick = guard($('#r1Btn'), 'r1', () => setPhase('r1', minutes()));
+$('#r2Btn').onclick = guard($('#r2Btn'), 'r2', () => setPhase('r2', minutes()));
+$('#r3Btn').onclick = guard($('#r3Btn'), 'r3', () => setPhase('r3', minutes()));
 $('#fixHw').onchange = renderPhasebar;
 $('#fixBtn').onclick = async () => {
   hidePodium();
@@ -1110,7 +1150,7 @@ $('#resetBtn').onclick = async () => {
   const btn = $('#resetBtn');
   if (!btn.dataset.armed) { btn.dataset.armed = '1'; btn.textContent = 'Click again to reset everything'; setTimeout(() => { delete btn.dataset.armed; btn.textContent = 'Reset'; }, 5000); return; }
   delete btn.dataset.armed; btn.textContent = 'Reset';
-  const wipe = () => { hidePodium(); closeApp(); closeProj(); running = false; expirationMs = 0; pick = { offers: [], scholar: '' }; eyeTop = false; mtFile = C[0].id; $('#fixHw').checked = false;
+  const wipe = () => { hidePodium(); closeApp(); closeProj(); running = false; expirationMs = 0; pick = { offers: [], scholar: '' }; eyeTop = false; rfAll = false; rfOpen.clear(); mtFile = C[0].id; $('#fixHw').checked = false;
     D = BLANK(); lastSig = ''; minsFor = ''; view = 'live'; syncMins(); render(); renderClock(); };
   wipe(); $('#status').textContent = 'Resetting…';
   try { await api('POST', { action: 'reset' }); wipe(); await poll(); } catch (e) { alert('Could not reach the backend.'); }

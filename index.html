@@ -44,7 +44,8 @@ h2.serif{font-size:30px;line-height:1.05}
 .clock{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:30px;font-variant-numeric:tabular-nums;line-height:1}
 .clock.warn{color:var(--gold)} .clock.danger{color:var(--accent)}
 .iconbtn{border:1px solid var(--line);background:var(--card);border-radius:10px;width:40px;height:40px;display:grid;place-items:center;font-size:18px;flex:0 0 auto}
-.iconbtn.sm{width:34px;height:34px;font-size:15px}
+.iconbtn.sm{width:44px;height:44px;font-size:15px}
+.bar .in:has(.clock:not(:empty)) .brand{font-size:18px}
 /* cards & buttons */
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);margin-top:14px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 18px;font-weight:700;background:var(--accent);color:var(--accent-ink);min-height:48px}
@@ -95,7 +96,7 @@ details.prog li{margin-top:3px}
 .stmt p.para{font-size:17px;line-height:1.75;margin-top:10px}
 .parahead{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}
 .u{cursor:pointer;border-radius:4px;padding:1px 1px;-webkit-box-decoration-break:clone;box-decoration-break:clone;text-underline-offset:4px}
-.u:hover{background:var(--soft)}
+@media (hover:hover){ .u:hover{background:var(--soft)} }
 .u.open{background:var(--blue-soft);box-shadow:0 0 0 2px var(--blue)}
 .u.m-e{background:var(--green-soft);text-decoration:underline solid var(--green) 2px}
 .u.m-c{background:var(--amber-soft);text-decoration:underline wavy var(--amber) 1.5px}
@@ -107,6 +108,8 @@ details.prog li{margin-top:3px}
 .u.act{display:block;padding:10px 12px;border-left:5px solid var(--line);background:var(--soft);border-radius:8px;text-decoration:none;font-size:16px}
 .u.act.m-e{border-left-color:var(--green);background:var(--green-soft)} .u.act.m-c{border-left-color:var(--amber);background:var(--amber-soft)} .u.act.m-f{border-left-color:var(--red);background:var(--red-soft)}
 .rzl{display:block;font-size:13px;font-weight:600;color:var(--red);margin-top:2px}
+.rzi{display:inline-block;font-size:12px;font-weight:700;color:var(--red);background:var(--card);border:1px solid var(--red);border-radius:999px;padding:0 7px;margin-left:4px;line-height:1.5;text-decoration:none;vertical-align:1px}
+.rzi.none,.rzl.none{border-style:dashed}
 .mk{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:8px 10px 10px;margin:8px 0 12px}
 .mkhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .mkbtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
@@ -116,7 +119,7 @@ details.prog li{margin-top:3px}
 .mkb.mk-c[aria-pressed=true]{background:var(--amber);border-color:var(--amber);color:var(--card)}
 .mkb.mk-f[aria-pressed=true]{background:var(--red);border-color:var(--red);color:var(--card)}
 .reasons{display:flex;flex-direction:column;gap:6px;margin-top:4px}
-.chip.rz{width:100%}
+.chip.rz{width:100%;min-height:44px}
 .chip.rz[aria-checked=true]{border-color:var(--red);background:var(--red-soft);color:var(--red);font-weight:700}
 .chip.rz[aria-checked=true]::before{content:'● '}
 .mchip{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:1px 9px;font-weight:700;font-size:14px;border:1.5px solid}
@@ -138,9 +141,9 @@ details.prog li{margin-top:3px}
 .ritem.s1{border-color:var(--gold);background:linear-gradient(90deg,var(--gold-soft),var(--card) 70%)} .ritem.s1 .rk{color:var(--gold)}
 .ritem.s2 .rk,.ritem.s3 .rk{color:var(--accent)}
 .ritem.low{opacity:.85} .ritem.low .rk{color:var(--muted)}
-.linkbtn{border:0;background:none;padding:0;font-weight:700;text-align:left;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.linkbtn{border:0;background:none;padding:6px 0;min-height:32px;font-weight:700;text-align:left;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 .mv{display:flex;flex-direction:column;gap:4px}
-.mv button{width:40px;height:30px;border:1px solid var(--line);background:var(--soft);border-radius:8px;font-size:14px;line-height:1}
+.mv button{width:44px;height:38px;border:1px solid var(--line);background:var(--soft);border-radius:8px;font-size:14px;line-height:1}
 .mv button:disabled{opacity:.3}
 .cut{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--muted);font-size:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .cut::before,.cut::after{content:'';flex:1;border-top:1.5px dashed var(--line)}
@@ -154,15 +157,20 @@ details.prog li{margin-top:3px}
 .tbl td{padding:8px 4px;border-bottom:1px solid var(--line);text-align:center;font-variant-numeric:tabular-nums}
 .tbl td.c{display:flex;align-items:center;gap:8px;font-weight:600}
 .tbl td.c .ph{width:28px;height:35px;border-radius:6px;object-fit:cover;font-size:13px}
-.tbl tr.split td{background:var(--flag-soft)} .tbl tr.agree td{background:var(--green-soft)}
+.tbl tr.split td,.tbl tr.split td:first-child{background:var(--flag-soft)} .tbl tr.agree td,.tbl tr.agree td:first-child{background:var(--green-soft)}
 .tscroll{overflow-x:auto;margin:0 -4px;padding:0 4px}
+.tbl th.nm{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbl td.c span.fn{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:84px}
+@media (max-width:420px){ .tbl{font-size:14px} .tbl td,.tbl th{padding-left:2px;padding-right:2px} .tbl td.c .ph{display:none} }
+.tbl td:first-child,.tbl th:first-child{position:sticky;left:0;background:var(--card);z-index:1}
 .rkcell{display:inline-block;min-width:26px;padding:2px 4px;border-radius:7px;font-weight:700}
 .rkcell.top{background:var(--gold-soft);color:var(--gold)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:6px 11px;font-size:14px;text-align:left;line-height:1.3}
 .chip[aria-pressed=true]{border-color:var(--green);background:var(--green-soft);color:var(--green);font-weight:600}
+.chip[aria-pressed=true]:not(.rz)::before{content:'✓ '}
 .wc{font-size:13px;font-weight:600;margin-top:4px}
-.wc.ok{color:var(--green)} .wc.no{color:var(--accent)}
+.wc.ok{color:var(--green)} .wc.no{color:var(--accent)} .wc.zero{color:var(--muted)}
 .member{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
 .member:last-child{border:0}
 .member input{width:22px;height:22px;accent-color:var(--accent)}
@@ -225,7 +233,7 @@ details.prog li{margin-top:3px}
   <div class="brand">The Statement Shortlist<small id="sub"></small></div>
   <div class="clock" id="clock" aria-live="off"></div>
   <button class="iconbtn" id="helpBtn" aria-label="Help: what to look for">?</button>
-  <button class="iconbtn" id="themeBtn" aria-label="Switch light or dark">◐</button>
+  <button class="iconbtn" id="themeBtn" aria-label="Switch light or dark">☾</button>
 </div><div id="offline" class="offline" hidden>Connection lost. Your work is saved on this phone; it will send when the connection returns.</div></div>
 <main class="wrap" id="app"></main>
 <div class="toast" id="toast" role="status"></div>
@@ -277,12 +285,11 @@ const mem = {};
 function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return mem[KEY] || {}; } }
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { mem[KEY] = S; } }
 let S = load();
-function themeApply(t){ if (t) document.documentElement.setAttribute('data-theme', t); else document.documentElement.removeAttribute('data-theme'); }
-try { themeApply(localStorage.getItem('ss.theme')); } catch (e) {}
+function isDark(){ return document.documentElement.getAttribute('data-theme') === 'dark' || (!document.documentElement.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches); }
+function themeApply(t){ if (t) document.documentElement.setAttribute('data-theme', t); else document.documentElement.removeAttribute('data-theme'); const b = document.getElementById('themeBtn'); if (b) b.textContent = isDark() ? '☀' : '☾'; }
+try { themeApply(localStorage.getItem('ss.theme')); } catch (e) { themeApply(null); }
 $('#themeBtn').onclick = () => {
-  const dark = document.documentElement.getAttribute('data-theme') === 'dark' ||
-    (!document.documentElement.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
-  const t = dark ? 'light' : 'dark'; themeApply(t); try { localStorage.setItem('ss.theme', t); } catch (e) {}
+  const t = isDark() ? 'light' : 'dark'; themeApply(t); try { localStorage.setItem('ss.theme', t); } catch (e) {}
 };
 $('#foot').textContent = U.footer || '';
 
@@ -309,11 +316,18 @@ function editingText(){ const a = document.activeElement; return !!a && (a.tagNa
 function ttsNorm(t){ return String(t).replace(/\s+/g, ' ').trim(); }
 function ttsKey(t){ let h = 0x811c9dc5; t = ttsNorm(t); for (let i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return ('0000000' + h.toString(16)).slice(-8); }
 const TTS = window.TTS || { dir: 'audio/', clips: {} };
-let audio = null, playToken = 0, playingBtn = null;
+let audio = null, playToken = 0, PLAY = null;   // PLAY = {fileId, src: 'all' | 'p1'… | 'act', paused}
 function clipText(f, key){ if (key === 'act') return f.activities.map(a => a.text).join(' '); const p = parasOf(f).find(x => 'p' + x.n === key); return p ? p.text : ''; }
 function clipKeys(f){ return parasOf(f).map(p => 'p' + p.n).concat(['act']); }
 function hasClip(f, key){ const t = clipText(f, key), c = TTS.clips && TTS.clips[f.id + '-' + key]; return !!(AUDIO && t && c && c === ttsKey(t)); }
-function stopAudio(){ playToken++; if (audio) { try { audio.pause(); } catch (e) {} audio = null; } if (playingBtn) { playingBtn.classList.remove('playing'); playingBtn.textContent = playingBtn.dataset.label; playingBtn = null; } }
+function stopAudio(){ playToken++; if (audio) { try { audio.pause(); } catch (e) {} audio = null; } PLAY = null; syncListen(); }
+function syncListen(){
+  document.querySelectorAll('[data-listen]').forEach(b => {
+    const on = !!PLAY && PLAY.fileId === S.at && PLAY.src === b.dataset.listen, base = b.dataset.listen === 'all' ? 'Play all' : 'Listen';
+    b.textContent = on ? (PLAY.paused ? '▶ Resume' : '❚❚ Pause') : '▶ ' + base;
+    b.classList.toggle('playing', on && !PLAY.paused); b.setAttribute('aria-pressed', String(on && !PLAY.paused));
+  });
+}
 function playOne(f, key, token){
   return new Promise(resolve => {
     if (token !== playToken || !hasClip(f, key)) return resolve();
@@ -323,14 +337,19 @@ function playOne(f, key, token){
     audio.play().catch(() => resolve());
   });
 }
-async function listen(btn, f, keys){
-  if (btn.classList.contains('playing')) { stopAudio(); return; }
+async function listen(f, src){
+  if (PLAY && PLAY.fileId === f.id && PLAY.src === src) {             // same button: pause or resume
+    PLAY.paused = !PLAY.paused;
+    if (audio) { if (PLAY.paused) audio.pause(); else audio.play().catch(() => {}); }
+    return syncListen();
+  }
   stopAudio(); const token = playToken;
-  playingBtn = btn; btn.dataset.label = btn.dataset.label || btn.textContent; btn.classList.add('playing'); btn.textContent = '■ Stop';
+  const keys = src === 'all' ? clipKeys(f).filter(k => hasClip(f, k)) : [src];
+  PLAY = { fileId: f.id, src, paused: false }; syncListen();
   for (const k of keys) { if (token !== playToken) return; await playOne(f, k, token); }
   if (token === playToken) stopAudio();
 }
-function listenBtn(f, key){ return hasClip(f, key) ? '<button class="listen" data-listen="' + key + '" aria-label="Listen to ' + (key === 'act' ? 'the activity list' : 'paragraph ' + key.slice(1)) + '">▶ Listen</button>' : ''; }
+function listenBtn(f, key){ return hasClip(f, key) ? '<button class="listen" data-listen="' + key + '" aria-pressed="false" aria-label="Listen to ' + (key === 'act' ? 'the activity list' : 'paragraph ' + key.slice(1)) + '">▶ Listen</button>' : ''; }
 
 /* ---------- server state & clock ---------- */
 let ST = { phase: 'lobby', endsAt: 0, running: false, epoch: '1' }, skew = 0, online = true, pollH = null;
@@ -470,10 +489,9 @@ function focusKey(){
 }
 function softRender(){ if (!editingText()) render(); }
 function render(){
-  stopAudio();
   const fk = focusAfter || focusKey(); focusAfter = null;
   const el = $('#app');
-  if (!S.name && !S.practice) { el.innerHTML = viewJoin(); bindJoin(); $('#sub').textContent = SL.meta.programme; return; }
+  if (!S.name && !S.practice) { stopAudio(); el.innerHTML = viewJoin(); bindJoin(); $('#sub').textContent = SL.meta.programme; return; }
   if (S.practice) { $('#sub').textContent = 'Solo practice'; el.innerHTML = viewRead('practice'); bindRead('practice'); }
   else {
     $('#sub').textContent = S.name + ' · Panel ' + S.panel;
@@ -489,6 +507,7 @@ function render(){
     else { el.innerHTML = viewR3(); bindHelp(); }
   }
   if (fk) { const n = document.querySelector(fk); if (n) n.focus({ preventScroll: true }); }
+  if (PLAY && (S.at !== PLAY.fileId || !document.querySelector('[data-listen]'))) stopAudio(); else syncListen();
 }
 
 /* Join */
@@ -556,7 +575,7 @@ function viewWait(t, sub){ return '<div class="card center" style="margin-top:30
 function myRankingCard(){
   if (!S.r1) return '';
   const fl = flaggedFiles(S.marks);
-  return '<div class="card"><div class="lab">Your ranking</div><ol style="padding-left:22px;margin-top:6px">' + S.r1.order.map((id, i) => '<li>' + esc(BYID[id].name) + (i === 0 ? ' — scholarship' : i < 3 ? ' — place' : '') + (fl.includes(id) ? ' 🚩' : '') + '</li>').join('') + '</ol></div>';
+  return '<div class="card"><div class="lab">Your ranking</div><ol style="padding-left:22px;margin-top:6px">' + S.r1.order.map((id, i) => '<li>' + esc(BYID[id].name) + (i === 0 ? ': scholarship' : i < 3 ? ': place' : '') + (fl.includes(id) ? ' 🚩' : '') + '</li>').join('') + '</ol></div>';
 }
 
 /* Preview, Round 1 and Solo practice: file list, reader, ranking */
@@ -572,27 +591,29 @@ function viewRead(mode){
     (mode === 'practice' ? '<button role="tab" aria-selected="' + (tab === 'fix') + '" data-tab="fix">Fix-it</button>' : '') + '</div>';
   let body;
   if (mode === 'practice' && tab === 'fix') body = viewSoloFix();
-  else if (mode !== 'preview' && tab === 'rank') body = '<p class="muted small" style="margin-top:12px">' + esc(U.rankHint) + '</p>' + rankList(R.order, flaggedFiles(S.marks), 'r1');
+  else if (mode !== 'preview' && tab === 'rank') body = '<p class="muted small" style="margin-top:12px">' + esc(U.rankHint) + '</p>' + (R.moved || R.sent ? '' : '<p class="note">' + esc(U.startOrder) + '</p>') + rankList(R.order, flaggedFiles(S.marks), 'r1');
   else if (S.at && BYID[S.at]) body = viewReader(mode);
   else body = viewList(mode);
   const dock = mode === 'r1' ? '<div class="dock"><div class="in"><button class="btn block" id="send">' + (R.sent ? 'Send my ranking again' : 'Send my ranking') + '</button></div></div>' : '';
   return head + tabs + body + dock;
 }
 function viewList(mode){
-  const R = mode === 'preview' ? null : S.r1, nm = Object.keys(S.marks).length;
+  const R = mode === 'preview' || !(S.r1 && (S.r1.moved || S.r1.sent)) ? null : S.r1, nm = Object.keys(S.marks).length;
   return '<div class="progline"><span>' + esc(U.listHint) + '</span></div><div class="progline"><b>Read ' + S.opened.length + ' of ' + FILES.length + '</b><span>' + nm + (nm === 1 ? ' mark' : ' marks') + '</span></div>' +
     '<ul class="flist">' + S.deck.map(id => {
       const f = BYID[id], k = fileMarks(f), op = S.opened.includes(id), rank = R ? R.order.indexOf(id) + 1 : 0;
       return '<li><button class="ftile" data-open="' + id + '">' + img(f) + '<span class="mid"><b>' + esc(f.name) + '</b><small>' + esc(f.faculty) + '</small><span class="chips">' +
-        (op ? pill('✓ Read', 'green') : pill('Not opened')) + (k ? pill(k + (k === 1 ? ' mark' : ' marks'), 'blue') : '') + (rank ? pill('Rank ' + rank, rank <= 3 ? 'gold' : '') : '') +
+        (op ? pill('✓ Opened', 'green') : pill('Not opened')) + (k ? pill(k + (k === 1 ? ' mark' : ' marks'), 'blue') : '') + (rank ? pill('Rank ' + rank, rank <= 3 ? 'gold' : '') : '') +
         '</span></span><span class="go" aria-hidden="true">›</span></button></li>';
     }).join('') + '</ul>';
 }
+function reasonOf(c, u){ const r = c && c[u]; return r != null && SL.concernReasons[r] != null ? SL.concernReasons[r] : ''; }
 function unitSpan(id, block){
-  const m = S.marks[id], mt = m && MARK[m], open = S.openU === id, rz = m === 'f' && S.concerns[id] != null ? SL.concernReasons[S.concerns[id]] : '';
+  const m = S.marks[id], mt = m && MARK[m], open = S.openU === id, rz = m === 'f' ? reasonOf(S.concerns, id) : '';
+  const rzText = m === 'f' ? (rz || U.noReasonYet) : '';
   return '<span class="u' + (block ? ' act' : '') + (m ? ' m-' + m : '') + (open ? ' open' : '') + '" role="button" tabindex="0" data-u="' + id + '" aria-expanded="' + open + '">' +
-    (mt ? '<span class="mi" aria-hidden="true">' + mt.icon + '</span><span class="sr">' + esc(mt.label) + (rz ? ' (' + esc(rz) + ')' : '') + ': </span>' : '') + esc(UNITS[id].text) +
-    (block && rz ? '<span class="rzl" aria-hidden="true">🚩 ' + esc(rz) + '</span>' : '') + '</span>';
+    (mt ? '<span class="mi" aria-hidden="true">' + mt.icon + '</span><span class="sr">' + esc(mt.label) + (rzText ? ' (' + esc(rzText) + ')' : '') + ': </span>' : '') + esc(UNITS[id].text) +
+    (rzText ? '<span class="' + (block ? 'rzl' : 'rzi') + (rz ? '' : ' none') + '" aria-hidden="true">' + (block ? '🚩 ' : '') + esc(rzText) + '</span>' : '') + '</span>';
 }
 function markRow(id){
   const m = S.marks[id], isA = UNITS[id].kind === 'a';
@@ -636,7 +657,7 @@ function rankList(order, flags, scope){
     if (r === 4) h += '<li class="cut" aria-hidden="true">Not offered a place</li>';
     if (r === 8) h += '<li class="cut" aria-hidden="true">Bottom 3</li>';
     h += '<li class="ritem' + (r === 1 ? ' s1' : r <= 3 ? ' s' + r : r >= 8 ? ' low' : '') + '"><span class="rk">' + r + '</span>' + img(c) +
-      '<div class="mid"><b>' + (scope === 'r1' ? '<button class="linkbtn" data-open="' + id + '">' + esc(c.name) + '</button>' : esc(c.name)) + (flags && flags.includes(id) ? ' 🚩' : '') + '</b><small>' + esc(c.faculty) + ' · ' + pts(r) + ' pts' + (tag(r) ? ' · ' + tag(r) : '') + '</small></div>' +
+      '<div class="mid"><b>' + (scope === 'r1' ? '<button class="linkbtn" data-open="' + id + '">' + esc(c.name) + '</button>' : esc(c.name)) + (flags && flags.includes(id) ? ' 🚩' : '') + '</b><small>' + esc(c.faculty) + ' · ' + pts(r) + (pts(r) === 1 ? ' pt' : ' pts') + (tag(r) ? ' · ' + tag(r) : '') + '</small></div>' +
       '<div class="mv"><button data-up="' + i + '" data-scope="' + scope + '" aria-label="Move ' + esc(c.name) + ' up"' + (i ? '' : ' disabled') + '>▲</button><button data-dn="' + i + '" data-scope="' + scope + '" aria-label="Move ' + esc(c.name) + ' down"' + (i < 9 ? '' : ' disabled') + '>▼</button></div></li>';
   });
   return h + '</ol>';
@@ -652,10 +673,12 @@ function bindMoves(getArr, after){
   });
 }
 function toggleUnit(u, viaKey){
+  if (S.openU && S.openU !== u) noReasonPrompt(S.openU);
   S.openU = S.openU === u ? null : u; save(); render();
   if (viaKey && S.openU) { const b = document.querySelector('.mk [data-mk][aria-pressed="true"]') || document.querySelector('.mk [data-mk]'); if (b) b.focus(); }
 }
-function closeRow(){ const u = S.openU; if (!u) return; S.openU = null; save(); focusAfter = '[data-u="' + u + '"]'; render(); }
+function noReasonPrompt(u){ if (u && S.marks[u] === 'f' && S.concerns[u] == null) toast(U.concernKept); }
+function closeRow(){ const u = S.openU; if (!u) return; noReasonPrompt(u); S.openU = null; save(); focusAfter = '[data-u="' + u + '"]'; render(); }
 function bindRead(mode){
   const R = S.r1; bindHelp();
   document.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { if (S.at) leaveReader(); tab = b.dataset.tab; if (tab === 'fix') loadSoloFix(); render(); window.scrollTo(0, 0); });
@@ -677,7 +700,7 @@ function bindRead(mode){
   document.querySelectorAll('[data-rz]').forEach(b => b.onclick = () => { S.concerns[S.openU] = +b.dataset.rz; touchMarks(); closeRow(); });
   if ($('[data-mkclose]')) $('[data-mkclose]').onclick = closeRow;
   if ($('#progStrip')) $('#progStrip').ontoggle = e => { S.progOpen = e.target.open; save(); };
-  document.querySelectorAll('[data-listen]').forEach(b => b.onclick = () => listen(b, f, b.dataset.listen === 'all' ? clipKeys(f) : [b.dataset.listen]));
+  document.querySelectorAll('[data-listen]').forEach(b => b.onclick = () => listen(f, b.dataset.listen));
   if ($('#rankSel')) $('#rankSel').onchange = e => { moveIn(R.order, R.order.indexOf(f.id), +e.target.value - 1); R.moved++; save(); toast(f.name + ' is now number ' + e.target.value); render(); };
   if (R) bindMoves(() => R.order, () => { R.moved++; save(); });
   if ($('#leaveSolo')) $('#leaveSolo').onclick = () => { S = { lastName: S.lastName }; save(); tab = 'files'; render(); };
@@ -715,6 +738,7 @@ function membersData(){
   const others = ms.filter(m => !same(m.name, S.name));
   return { me, others };
 }
+function shortName(n){ n = String(n || ''); return n.length > 7 ? n.slice(0, 6) + '…' : n; }
 function combined(list){
   const sum = {}, best = {};
   FILES.forEach(c => { sum[c.id] = 0; best[c.id] = 11; });
@@ -747,14 +771,14 @@ function viewR2(){
     const agreeTop = rows.filter(r => r.ranks.every(k => k == null || k <= 3)).map(r => BYID[r.id].name);
     const big = rows.slice().sort((a, b) => b.spread - a.spread)[0];
     h += '<div class="card"><div class="lab">Compare and contrast</div><h2 class="serif" style="margin-top:4px">Where do you agree?</h2>' +
-      '<ul class="clean" style="margin-top:6px;font-size:15px"><li>🟢 <b>All of you put in your top 3:</b> ' + (agreeTop.length ? esc(agreeTop.join(', ')) : 'nobody — talk about your 1st choices first') + '</li>' +
+      '<ul class="clean" style="margin-top:6px;font-size:15px"><li>🟢 <b>All of you put in your top 3:</b> ' + (agreeTop.length ? esc(agreeTop.join(', ')) : 'nobody. Talk about your 1st choices first.') + '</li>' +
       '<li>🟠 <b>Biggest split:</b> ' + esc(BYID[big.id].name) + ' (ranks ' + big.ranks.filter(k => k).join(', ') + '). Each of you: point to one sentence in the file.</li></ul>' +
       '<div class="tabs" style="margin-top:12px"><button aria-selected="' + (sortBy === 'split') + '" data-sort="split">Biggest split first</button><button aria-selected="' + (sortBy === 'points') + '" data-sort="points">Combined points</button></div>' +
-      '<div class="tscroll"><table class="tbl"><thead><tr><th>File</th>' + cols.map(c => '<th>' + esc(c.name) + '</th>').join('') + '<th>Points</th><th>🚩</th></tr></thead><tbody>' +
-      shown.map(r => '<tr class="' + (r.spread >= 5 ? 'split' : r.spread <= 1 ? 'agree' : '') + '"><td class="c">' + img(BYID[r.id]) + esc(BYID[r.id].name) + '</td>' +
+      '<div class="tscroll"><table class="tbl"><thead><tr><th>File</th>' + cols.map(c => '<th class="nm" title="' + esc(c.name) + '">' + esc(shortName(c.name)) + '</th>').join('') + '<th title="Combined points">Pts</th><th><span aria-hidden="true">🚩</span><span class="sr">Concerns</span></th></tr></thead><tbody>' +
+      shown.map(r => '<tr class="' + (r.spread >= 5 ? 'split' : r.spread <= 1 ? 'agree' : '') + '"><td class="c">' + img(BYID[r.id]) + '<span class="fn">' + esc(BYID[r.id].name) + '</span></td>' +
         r.ranks.map(k => '<td>' + (k == null ? '–' : '<span class="rkcell' + (k <= 3 ? ' top' : '') + '">' + k + '</span>') + '</td>').join('') +
         '<td><b>' + r.sum + '</b></td><td>' + (r.fl || '') + '</td></tr>').join('') + '</tbody></table></div>' +
-      '<p class="muted" style="font-size:13px;margin-top:8px">Green rows: you agree (ranks within 1). Orange rows: ranks 5 or more apart — discuss these first. 🚩 = how many of you raised a concern in that file.</p></div>';
+      '<p class="muted" style="font-size:13px;margin-top:8px">Green rows: you agree (ranks within 1). Orange rows: ranks 5 or more apart. Discuss these first. 🚩 = how many of you raised a concern in that file.</p></div>';
   } else {
     h += '<div class="card"><div class="lab">Compare and contrast</div><p style="margin-top:6px">Tick your panel members to see your rankings side by side.</p>' + myRankingCard().replace('<div class="card">', '<div>') + '</div>';
   }
@@ -762,7 +786,8 @@ function viewR2(){
   // head of panel
   h += '<div class="card"><div class="lab">Head of panel</div>';
   if (sub) h += submissionView(sub);
-  if (!head) h += '<p style="margin-top:6px">Your panel needs one head. The head writes and submits the panel’s nominations.</p><button class="btn" id="claim" style="margin-top:10px">I’ll be head of panel</button>';
+  if (!head) h += '<p style="margin-top:6px">Your panel needs one head. The head writes and submits the panel’s nominations.</p><button class="btn" id="claim" style="margin-top:10px">Make me head of panel</button>';
+  else if (iAmHead) h += '<p style="margin-top:6px"><b>You are head of panel.</b> Your form is below. Agree each choice with your panel before you submit.</p>';
   else if (!iAmHead) h += '<p style="margin-top:6px"><b>' + esc(head) + '</b> is head of panel and will submit. Help her decide and choose the words for your reasons.</p>';
   h += '</div>';
   if (iAmHead) h += headForm(withOrder.length ? combined(withOrder).map(x => x.id) : me.order || S.deck || FILES.map(f => f.id));
@@ -772,7 +797,7 @@ function viewR2(){
 function markTag(c, f, u){
   if (!(c.opened || []).includes(f.id)) return '<span class="mtag m-x">' + esc(c.name) + ' · not opened</span>';
   const m = (c.marks || {})[u], t = MARK[m];
-  return '<span class="mtag' + (t ? ' m-' + m : '') + '">' + esc(c.name) + ' · ' + (t ? t.icon + ' ' + esc(t.label) : '— no mark') + '</span>';
+  return '<span class="mtag' + (t ? ' m-' + m : '') + '">' + esc(c.name) + ' · ' + (t ? t.icon + ' ' + esc(t.label) : 'no mark') + '</span>';
 }
 function marksCard(cols){
   let h = '<div class="card"><div class="lab">Marks</div><h2 class="serif" style="margin-top:4px">Where your marks differ</h2>';
@@ -785,7 +810,7 @@ function marksCard(cols){
     per.map(p => '<button class="chip" role="tab" data-mvf="' + p.f.id + '" aria-pressed="' + (p.f.id === sel) + '" aria-selected="' + (p.f.id === sel) + '">' + esc(p.f.name) + ' · ' + p.ids.length + '</button>').join('') + '</div>';
   if (!cur.ids.length) return h + '<p class="note">' + esc(U.marksViewNone) + '</p></div>';
   h += '<div style="margin-top:8px">' + cur.ids.map(u => {
-    const rz = members.filter(c => (c.opened || []).includes(sel) && c.marks[u] === 'f' && c.concerns[u] != null).map(c => esc(c.name) + ': ' + esc(SL.concernReasons[c.concerns[u]]));
+    const rz = members.filter(c => (c.opened || []).includes(sel) && c.marks[u] === 'f').map(c => esc(c.name) + ': ' + esc(reasonOf(c.concerns, u) || U.noReasonGiven));
     return '<div class="mvrow"><div class="lab">' + unitLabel(u) + '</div><div class="mvtext">' + esc(UNITS[u].text) + '</div><div class="mvmarks">' + members.map(c => markTag(c, cur.f, u)).join('') + '</div>' +
       (rz.length ? '<div class="mvrz">🚩 ' + rz.join(' · ') + '</div>' : '') + '</div>';
   }).join('') + '</div></div>';
@@ -796,19 +821,22 @@ function submissionView(sub){
   return '<div class="note" style="background:var(--green-soft)"><b>✅ Submitted by ' + esc(sub.head) + '.</b> Panel: ' + esc((sub.members || []).join(', ')) + '</div>' +
     sub.order.slice(0, 3).map((id, i) => '<div class="nomcard">' + img(BYID[id]) + '<div><span class="stamp ' + (i ? 'red' : 'gold') + '" style="font-size:13px">' + (i ? 'Place' : 'Scholarship') + '</span><b style="display:block;margin-top:4px">' + esc(BYID[id].name) + '</b><span class="muted" style="font-size:14px">' + esc(sub.reasons[SLOTS[i]] || '') + '</span>' + attachText(sub, SLOTS[i]) + '</div></div>').join('');
 }
-function attachFor(F, i){ const u = F.attach && F.attach[SLOTS[i]]; return u && UNITS[u] && UNITS[u].file === F.order[i] ? u : ''; }
+/* reasons and attached sentences belong to a file, not to a slot: reordering keeps each with its applicant */
+function fileNote(F, id){ F.notes = F.notes || {}; return F.notes[id] || (F.notes[id] = { reason: '', attach: '' }); }
+function reasonFor(F, i){ return fileNote(F, F.order[i]).reason || ''; }
+function attachFor(F, i){ const u = fileNote(F, F.order[i]).attach; return u && UNITS[u] && UNITS[u].file === F.order[i] ? u : ''; }
 function headForm(start){
-  if (!S.pform || S.pform.panel !== S.panel) S.pform = { panel: S.panel, order: start.slice(), reasons: { s: '', o2: '', o3: '' }, attach: { s: '', o2: '', o3: '' }, recs: {} };
-  const F = S.pform; F.attach = F.attach || { s: '', o2: '', o3: '' }; save();
+  if (!S.pform || S.pform.panel !== S.panel) S.pform = { panel: S.panel, order: start.slice(), notes: {}, recs: {} };
+  const F = S.pform; F.notes = F.notes || {}; save();
   const title = ['Why does this applicant deserve the scholarship and a place?', 'Why does this applicant deserve a place?', 'Why does this applicant deserve a place?'];
   let h = '<div class="card" id="pform"><div class="lab">You are head of panel</div><h2 class="serif" style="margin-top:4px">Your panel’s ranking</h2>' +
     '<p class="muted" style="font-size:14px;margin-top:4px">It starts from your combined points. Move files until the whole panel agrees.</p>' + rankList(F.order, null, 'panel') + '</div>';
   h += '<div class="card"><div class="lab">Reasons (at least ' + MIN_WORDS + ' words each, with one sentence attached)</div>';
   F.order.slice(0, 3).forEach((id, i) => {
-    const sl = SLOTS[i], w = words(F.reasons[sl]), att = attachFor(F, i);
+    const sl = SLOTS[i], w = words(reasonFor(F, i)), att = attachFor(F, i);
     h += '<div style="margin-top:16px"><div class="row"><span class="stamp ' + (i ? 'red' : 'gold') + '" style="font-size:13px">' + (i ? 'Place' : 'Scholarship') + '</span><b>' + esc(BYID[id].name) + '</b></div>' +
-      '<label class="field" style="margin-top:6px"><span class="muted" style="font-size:14px">' + title[i] + ' Use evidence from the file.</span><textarea data-reason="' + sl + '" maxlength="600">' + esc(F.reasons[sl]) + '</textarea></label>' +
-      '<div class="wc ' + (w >= MIN_WORDS ? 'ok' : 'no') + '" data-wc="' + sl + '">' + w + ' / ' + MIN_WORDS + ' words</div>' +
+      '<label class="field" style="margin-top:6px"><span class="muted" style="font-size:14px">' + title[i] + ' Use evidence from the file.</span><textarea data-reason="' + sl + '" maxlength="600">' + esc(reasonFor(F, i)) + '</textarea></label>' +
+      '<div class="wc ' + (w >= MIN_WORDS ? 'ok' : w ? 'no' : 'zero') + '" data-wc="' + sl + '">' + w + ' / ' + MIN_WORDS + ' words</div>' +
       (att ? '<div class="attq"><span class="lab">Attached · ' + unitLabel(att) + '</span><q>' + esc(UNITS[att].text) + '</q></div>' : '<div class="wc no">' + esc(U.attachHint) + '</div>') +
       '<button class="btn ghost small" style="margin-top:6px" data-attopen="' + sl + '" aria-expanded="' + (attOpen === sl) + '">' + (att ? 'Change the sentence' : '📎 Attach a sentence') + '</button>';
     if (attOpen === sl) h += '<ul class="attlist">' + unitIds(BYID[id]).map(u => '<li><button class="attpick" data-att="' + sl + '|' + u + '" aria-pressed="' + (u === att) + '"><span class="lab">' + unitLabel(u) + (S.marks && S.marks[u] ? ' · your mark ' + MARK[S.marks[u]].icon : '') + '</span>' + esc(UNITS[u].text) + '</button></li>').join('') + '</ul>';
@@ -823,16 +851,16 @@ function headForm(start){
   return h;
 }
 function panelReady(F){
-  if (SLOTS.some(k => words(F.reasons[k]) < MIN_WORDS)) return 'Each reason needs at least ' + MIN_WORDS + ' words.';
+  if ([0, 1, 2].some(i => words(reasonFor(F, i)) < MIN_WORDS)) return 'Each reason needs at least ' + MIN_WORDS + ' words.';
   if ([0, 1, 2].some(i => !attachFor(F, i))) return 'Attach one sentence from the file to each reason.';
   if (F.order.slice(7).some(id => !(F.recs[id] || []).length)) return 'Choose advice for each of your bottom 3.';
   return '';
 }
 function panelBody(auto){
   const { others } = membersData(); const F = S.pform;
-  const attach = {}; SLOTS.forEach((sl, i) => { attach[sl] = attachFor(F, i); });
+  const attach = {}, reasons = {}; SLOTS.forEach((sl, i) => { attach[sl] = attachFor(F, i); reasons[sl] = reasonFor(F, i); });
   return { action: 'panel', panel: S.panel, head: S.name, members: [S.name].concat(others.filter(o => (S.mates || []).includes(o.name)).map(o => o.name)),
-    order: F.order, reasons: F.reasons, attach, recs: F.recs, auto: !!auto, epoch: S.epoch };
+    order: F.order, reasons, attach, recs: F.recs, auto: !!auto, epoch: S.epoch };
 }
 function bindR2(){
   bindHelp();
@@ -851,14 +879,23 @@ function bindR2(){
   if ($('#claim')) $('#claim').onclick = () => claimHead();
   if (S.pform) {
     const F = S.pform;
-    bindMoves(() => F.order, () => save());
+    let top3 = F.order.slice(0, 3).join();
+    bindMoves(() => F.order, () => {
+      save(); const now3 = F.order.slice(0, 3).join();
+      if (now3 !== top3) {
+        const out = top3.split(',').filter(id => !F.order.slice(0, 3).includes(id) && (fileNote(F, id).reason || fileNote(F, id).attach));
+        if (out.length) toast(U.reasonKept.split('{name}').join(BYID[out[0]].name));
+        else if (F.order.slice(0, 3).some(id => fileNote(F, id).reason)) toast(U.reasonMoved);
+        top3 = now3;
+      }
+    });
     document.querySelectorAll('[data-reason]').forEach(t => t.oninput = () => {
-      F.reasons[t.dataset.reason] = t.value; save(); const w = words(t.value), el = document.querySelector('[data-wc="' + t.dataset.reason + '"]');
-      el.textContent = w + ' / ' + MIN_WORDS + ' words'; el.className = 'wc ' + (w >= MIN_WORDS ? 'ok' : 'no');
+      const i = SLOTS.indexOf(t.dataset.reason); fileNote(F, F.order[i]).reason = t.value; save(); const w = words(t.value), el = document.querySelector('[data-wc="' + t.dataset.reason + '"]');
+      el.textContent = w + ' / ' + MIN_WORDS + ' words'; el.className = 'wc ' + (w >= MIN_WORDS ? 'ok' : w ? 'no' : 'zero');
     });
     document.querySelectorAll('[data-attopen]').forEach(b => b.onclick = () => { attOpen = attOpen === b.dataset.attopen ? null : b.dataset.attopen; render(); });
     document.querySelectorAll('[data-att]').forEach(b => b.onclick = () => {
-      const [sl, u] = b.dataset.att.split('|'); F.attach[sl] = u; attOpen = null; save(); focusAfter = '[data-attopen="' + sl + '"]'; render(); toast('Sentence attached');
+      const [sl, u] = b.dataset.att.split('|'); fileNote(F, UNITS[u].file).attach = u; attOpen = null; save(); focusAfter = '[data-attopen="' + sl + '"]'; render(); toast('Sentence attached');
     });
     document.querySelectorAll('[data-rec]').forEach(b => b.onclick = () => {
       const [id, rid] = b.dataset.rec.split('|'), a = F.recs[id] || (F.recs[id] = []), k = a.indexOf(rid);
@@ -900,11 +937,11 @@ function eyeCard(){
   if (r.locked) return h + '<p style="margin-top:6px">' + esc(U.eyeLocked) + '</p></div>';
   const s = r.score, val = s && typeof s.score === 'number' ? s.score : null;
   let why = '';
-  if (val == null) why = !s ? U.eyeNotYet : (s.hits + s.falses === 0 ? U.eyeNoMarks : U.eyeNoKeyed);
+  if (val == null) why = r.noRanking ? U.eyeNoRanking : !s ? U.eyeNotYet : (s.hits + s.falses === 0 ? U.eyeNoMarks : U.eyeNoKeyed);
   h += '<div class="eye"><div class="big" aria-label="' + (val == null ? 'No score' : 'Score ' + val + ' out of 100') + '">' + (val == null ? '—' : val) + '</div><div>' +
     (val != null ? '<b>out of 100</b><div class="muted small">' + s.hits + ' found · ' + s.falses + (s.falses === 1 ? ' false mark' : ' false marks') + ' · ' + s.misses + ' missed</div>' : '<span class="small">' + esc(why) + '</span>') + '</div></div>' +
     '<p class="muted small" style="margin-top:10px">' + esc(U.eyeWhat) + '</p>';
-  const missed = r.missed || (s && s.missed);
+  const missed = Array.isArray(r.missed) ? r.missed : (s && s.missed);   // the server sends missed at the top level after Reveal
   if (!ST.notes) h += '<p class="note">' + esc(U.eyeMissedWait) + '</p>';
   else if (Array.isArray(missed)) {
     const list = missed.filter(u => UNITS[u]);
@@ -914,7 +951,7 @@ function eyeCard(){
 }
 function viewR3(){
   let h = '<div class="card"><div class="lab">Round 3 · The committee</div><h2 class="serif" style="margin-top:4px">Look at the board</h2>' +
-    '<p style="margin-top:6px">Every panel’s choices are on the projector. Be ready to explain your panel’s scholarship choice and the sentence that decided it — and to change your mind if another panel’s evidence is better.</p></div>';
+    '<p style="margin-top:6px">Every panel’s choices are on the projector. Be ready to explain your panel’s scholarship choice and the sentence that decided it. Be ready to change your mind, too, if another panel’s evidence is better.</p></div>';
   const d = ST.decision;
   if (d && d.offers && d.offers.length) {
     h += '<div class="card"><div class="lab">The committee’s decision</div>' + d.offers.map(id => '<div class="nomcard">' + img(BYID[id]) + '<div><span class="stamp ' + (id === d.scholar ? 'gold' : 'red') + '" style="font-size:13px">' + (id === d.scholar ? 'Scholarship' : 'Place') + '</span><b style="display:block;margin-top:4px;font-size:18px">' + esc(BYID[id].name) + '</b><span class="muted small">' + esc(BYID[id].faculty) + '</span></div></div>').join('') + '</div>';
@@ -988,7 +1025,7 @@ function viewFix(){
   const sent = ((BOARD && BOARD.fixes) || []).filter(x => String(x.panel) === String(S.panel) && x.fileId === f.id && same(x.name, head)).sort((a, b) => b.at - a.at)[0];
   h += fileTargets(f, false, sent ? sent.target : '');
   h += '<div class="card"><div class="lab">Head of panel</div>';
-  if (!head) h += '<p style="margin-top:6px">Your panel needs one person to type and send. Nobody is head of panel yet.</p><button class="btn" id="claim" style="margin-top:10px">I’ll be head of panel</button>';
+  if (!head) h += '<p style="margin-top:6px">Your panel needs one person to type and send. Nobody is head of panel yet.</p><button class="btn" id="claim" style="margin-top:10px">Make me head of panel</button>';
   else if (!sent) h += '<p style="margin-top:6px"><b>' + esc(head) + '</b> is typing your panel’s version. It appears here when she sends it.</p>';
   else {
     const t = targetsOf(f).find(x => x.id === sent.target);
@@ -1006,7 +1043,7 @@ function viewSoloFix(){
 function updateFixLive(){
   const X = S.fix, f = X && BYID[X.fileId]; if (!f || !X.target) return;
   const t = targetsOf(f).find(x => x.id === X.target), txt = X.texts[X.target] || '', w = words(txt);
-  const wc = $('#fixWc'); if (wc) { wc.textContent = w + ' / ' + t.max + ' words'; wc.className = 'wc ' + (w && w <= t.max ? 'ok' : 'no'); }
+  const wc = $('#fixWc'); if (wc) { wc.textContent = w + ' / ' + t.max + ' words'; wc.className = 'wc ' + (!w ? 'zero' : w <= t.max ? 'ok' : 'no'); }
   const ul = $('#fixChecks'); if (ul) ul.innerHTML = checksHtml(X.target, coreCheckFix(X.target, txt, t.text));
 }
 function blockPaste(ta){
