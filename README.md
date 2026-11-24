@@ -6,7 +6,6 @@ at Bang Rak International University: ten applicant files (a 100–120-word pers
 three places, and one scholarship for the best of the three.
 
 - Student app: `index.html` → https://pegasus028.github.io/StatementShortlist/
-- Teacher board (projector): `board.html` — there is no teacher PIN, as in the Shortlist: never show the board address on a slide, video or QR.
 
 ## The lesson (about 45 minutes; every clock is set on the board)
 
@@ -26,7 +25,7 @@ Unsent rankings, marks and unfinished head forms are sent automatically when the
 | File | What it is |
 |---|---|
 | `index.html` | Student app (one file) |
-| `board.html` | Teacher board — **generated**: edit `tools/board-src.html`, then `python3 tools/build-board.py <InvestigativeReporter>/leaderboard.html` |
+| `board.html` | Generated: edit `tools/board-src.html`, then `python3 tools/build-board.py <InvestigativeReporter>/leaderboard.html` |
 | `config.js` | `API_URL` (Apps Script `/exec`) and `APP_URL` |
 | `data/content.js` | Programme, files, criteria, mark types, concern reasons, advice, and the Module 2 tools copied from ELF Studio (cliché ban list, rewrite rule, verb bank, line check) with their source and version. All wording lives here |
 | `js/core.js` | Shared logic (Cliché eye, flag catch, Marks view, agreement, own field, Fix-it assignment and checks ported from ELF Studio). Also pasted into `Code.gs` by `tools/sync-gs.js` |

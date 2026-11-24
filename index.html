@@ -718,7 +718,7 @@ function sendR1(auto){
 }
 function autoSendR1(){
   if (S.practice || !S.name) return;
-  if (S.r1 && !S.r1.sent && !S.r1.queued) return sendR1(true);
+  if (S.r1 && !S.r1.sent && !S.r1.queued && S.r1.moved) return sendR1(true);   // a ranking she never touched is not sent (it would be a random order)
   if (S.marksDirty) sendMarks(true);
 }
 

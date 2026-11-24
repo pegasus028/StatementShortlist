@@ -7,7 +7,7 @@ window.SL = {
     title: 'The Statement Shortlist',
     programme: 'Lotus Bridge Scholarship',
     blurb: 'An international university in Bangkok is choosing the first students for its Lotus Bridge Scholarship. Ten applicants sent a short personal statement and two activity lines. There are three places, and the best of the three also wins the full scholarship.',
-    version: '0.2.0',
+    version: '1.0.0',
     audio: true
   },
 
@@ -69,13 +69,13 @@ window.SL = {
     "id": "e",
     "label": "Evidence",
     "icon": "✓",
-    "look": "A fact a reader could check: a name, a number, a date, a result, what she did herself."
+    "look": "A fact a reader could check: a name, a number, a date, a result, what the applicant did personally."
   },
   {
     "id": "c",
     "label": "Cliché",
     "icon": "✗",
-    "look": "A phrase from the Module 2 cliché list, or one that could be in anyone's statement."
+    "look": "A phrase from the Module 2 cliché list (Help shows all 30)."
   },
   {
     "id": "f",
@@ -528,48 +528,48 @@ window.SL = {
     "statement": [
       {
         "id": "f01-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Mook, written only to test the layout of the reader on a phone screen.",
+        "text": "In July 2025 an old man missed his stop because our songthaew's map was too small.",
         "para": 1
       },
       {
         "id": "f01-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Mook, written only to test the layout of the reader on a phone screen.",
-        "para": 1
+        "text": "I redrew it with larger names and landmark colours, and Khun Prasert, the driver, displayed it.",
+        "para": 2
       },
       {
         "id": "f01-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Mook, written only to test the layout of the reader on a phone screen.",
+        "text": "I asked 40 passengers to find one stop on each map within 30 seconds.",
         "para": 2
       },
       {
         "id": "f01-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Mook, written only to test the layout of the reader on a phone screen.",
+        "text": "Only 11 found it on the old map, and 21 found it on mine.",
         "para": 2
       },
       {
         "id": "f01-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Mook, written only to test the layout of the reader on a phone screen.",
-        "para": 3
+        "text": "Older riders still struggled, because my pale yellow faded in the sun.",
+        "para": 2
       },
       {
         "id": "f01-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Mook, written only to test the layout of the reader on a phone screen.",
+        "text": "The Year 1 Bridge Project would let me design bus-stop signs for a Bangkok partner school.",
         "para": 3
       },
       {
         "id": "f01-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Mook, written only to test the layout of the reader on a phone screen.",
+        "text": "In the Crossing Seminars I would ask engineering students which inks survive the sun, and then reprint Khun Prasert's map.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f01-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Redesigned a songthaew route map in 2025, raising correct stop searches from 11 to 21 among 40 passengers."
       },
       {
         "id": "f01-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Helped at many school events and art activities over the years, which was really good practice for me."
       }
     ]
   },
@@ -582,48 +582,48 @@ window.SL = {
     "statement": [
       {
         "id": "f02-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "I have chosen accounting because I am good at mathematics and enjoy working with numbers.",
         "para": 1
       },
       {
         "id": "f02-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "My grade average over the last three years is 3.92, and I rank second in a class of 41.",
         "para": 1
       },
       {
         "id": "f02-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "In 2025 I was elected class treasurer, and in 2026 I was elected again.",
         "para": 2
       },
       {
         "id": "f02-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "I also served as vice-president of the mathematics club and secretary of the sports committee.",
         "para": 2
       },
       {
         "id": "f02-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Earth, written only to test the layout of the reader on a phone screen.",
-        "para": 3
+        "text": "In addition, I received a gold medal in the 2025 provincial mathematics olympiad and a bookkeeping certificate in 2026.",
+        "para": 2
       },
       {
         "id": "f02-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "The Lotus Bridge Scholarship would be a further achievement and would support my goal of becoming an accountant.",
         "para": 3
       },
       {
         "id": "f02-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Earth, written only to test the layout of the reader on a phone screen.",
+        "text": "I hope the committee will consider my record for this scholarship.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f02-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Class treasurer for 2 years, 2025 to 2026, elected by a class of 41 students both times."
       },
       {
         "id": "f02-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Vice-president of the mathematics club, and gold medal winner in the 2025 provincial mathematics olympiad."
       }
     ]
   },
@@ -690,48 +690,48 @@ window.SL = {
     "statement": [
       {
         "id": "f04-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Nont, written only to test the layout of the reader on a phone screen.",
+        "text": "In July 2025 my school van reached Bang Bua Thong 45 minutes late, and no parent knew why.",
         "para": 1
       },
       {
         "id": "f04-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Nont, written only to test the layout of the reader on a phone screen.",
-        "para": 1
+        "text": "My friend Arm drew the screens, and I wrote the code for a timetable page for our vans.",
+        "para": 2
       },
       {
         "id": "f04-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Nont, written only to test the layout of the reader on a phone screen.",
+        "text": "Drivers tap one button at each stop, so parents see where the van is.",
         "para": 2
       },
       {
         "id": "f04-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Nont, written only to test the layout of the reader on a phone screen.",
+        "text": "Khun Wichai, who manages the vans, says 84 families now use it.",
         "para": 2
       },
       {
         "id": "f04-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Nont, written only to test the layout of the reader on a phone screen.",
-        "para": 3
+        "text": "Calls to his office about late pick-ups fell from 35 to 16 a week.",
+        "para": 2
       },
       {
         "id": "f04-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Nont, written only to test the layout of the reader on a phone screen.",
+        "text": "For my Year 1 Bridge Project, I could adapt the page for a partner clinic's waiting times, then test it in the Crossing Seminars.",
         "para": 3
       },
       {
         "id": "f04-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Nont, written only to test the layout of the reader on a phone screen.",
+        "text": "This term I am adding text-message alerts for the 19 families without smartphones.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f04-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Programmed a van timetable page with one friend, cutting calls about late pick-ups from 35 to 16 a week."
       },
       {
         "id": "f04-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Taught 4 Saturday coding lessons to 15 younger pupils, helping 13 of them finish a simple maze game."
       }
     ]
   },
@@ -749,7 +749,7 @@ window.SL = {
       },
       {
         "id": "f05-s02",
-        "text": "Two friends and I then counted riders at the gate for 10 mornings: only 97 of 412 wore one.",
+        "text": "My friend Fai and I then counted riders at the gate for 10 mornings: only 97 of 412 wore one.",
         "para": 2
       },
       {
@@ -764,7 +764,7 @@ window.SL = {
       },
       {
         "id": "f05-s05",
-        "text": "I am applying because the first-year community project in the Kingsmead Scholars Programme would let me study this problem with a partner organisation.",
+        "text": "I am applying because the first-year community project at Kingsmead would let me study this problem with a partner organisation.",
         "para": 3
       },
       {
@@ -781,7 +781,7 @@ window.SL = {
     "activities": [
       {
         "id": "f05-a1",
-        "text": "Led 24 volunteers in a 2026 helmet count at my school gate, which persuaded the school to add a rack."
+        "text": "Led a 12-member volunteer team in a 2026 helmet count, which persuaded the school to add a rack."
       },
       {
         "id": "f05-a2",
@@ -798,48 +798,48 @@ window.SL = {
     "statement": [
       {
         "id": "f06-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "In June 2025 many of our 300 ducks got sick, and my father blamed the heat.",
         "para": 1
       },
       {
         "id": "f06-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Tee, written only to test the layout of the reader on a phone screen.",
-        "para": 1
+        "text": "Every morning for 8 weeks, I kept record of how many duck were sick.",
+        "para": 2
       },
       {
         "id": "f06-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "Khun Anan, the livestock officer, matched my record to rain days and explained me about mouldy feed.",
         "para": 2
       },
       {
         "id": "f06-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "We move the feed under a roof, and a month later weekly sick ducks fell from 33 to 14.",
         "para": 2
       },
       {
         "id": "f06-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "I am interested to make record cards with a Bangkok animal clinic for the Year 1 Bridge Project.",
         "para": 3
       },
       {
         "id": "f06-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "In the Year 3 internship, I want to work on small duck farms in Vietnam.",
         "para": 3
       },
       {
         "id": "f06-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Tee, written only to test the layout of the reader on a phone screen.",
+        "text": "I missed the rain myself, so now I write the weather beside every count.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f06-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Tracked sick ducks among 300 on our farm for 8 weeks, helping cut weekly cases from 33 to 14."
       },
       {
         "id": "f06-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Measured water temperature in our 4 duck pond for 5 weeks, which showed my father the coolest one."
       }
     ]
   },
@@ -852,48 +852,43 @@ window.SL = {
     "statement": [
       {
         "id": "f07-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Nan, written only to test the layout of the reader on a phone screen.",
+        "text": "Business interests me because it combines creativity, responsibility and a clear sense of what people need.",
         "para": 1
       },
       {
         "id": "f07-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Nan, written only to test the layout of the reader on a phone screen.",
+        "text": "Supporting my family's business has given me not only practical skills but also a deeper understanding of how organisations adapt.",
         "para": 1
       },
       {
         "id": "f07-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Nan, written only to test the layout of the reader on a phone screen.",
+        "text": "I analysed customer feedback, suggested thoughtful improvements and gained valuable insight into the challenges that small businesses face.",
         "para": 2
       },
       {
         "id": "f07-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Nan, written only to test the layout of the reader on a phone screen.",
-        "para": 2
+        "text": "I am confident that this programme offers the ideal environment to develop the knowledge, skills and mindset of a modern professional.",
+        "para": 3
       },
       {
         "id": "f07-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Nan, written only to test the layout of the reader on a phone screen.",
+        "text": "Its focus on interdisciplinary learning, community engagement and practical experience would allow me to apply theory in meaningful ways.",
         "para": 3
       },
       {
         "id": "f07-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Nan, written only to test the layout of the reader on a phone screen.",
-        "para": 3
-      },
-      {
-        "id": "f07-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Nan, written only to test the layout of the reader on a phone screen.",
+        "text": "In the future, I hope to create lasting value for businesses and communities alike.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f07-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Supported a family business with customer feedback analysis, leading to several practical improvements in service and presentation."
       },
       {
         "id": "f07-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Volunteered in a range of community and school activities, which was a valuable experience for my personal growth."
       }
     ]
   },
@@ -906,48 +901,48 @@ window.SL = {
     "statement": [
       {
         "id": "f08-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Oat, written only to test the layout of the reader on a phone screen.",
+        "text": "In August 2025 the hand pump at our village temple in Roi Et took 3 minutes to fill a bucket.",
         "para": 1
       },
       {
         "id": "f08-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Oat, written only to test the layout of the reader on a phone screen.",
-        "para": 1
+        "text": "Uncle Kasem, a retired mechanic, showed me how to open it, and I found a worn seal.",
+        "para": 2
       },
       {
         "id": "f08-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Oat, written only to test the layout of the reader on a phone screen.",
+        "text": "I cut a new seal from an old tyre and replaced a cracked joint.",
         "para": 2
       },
       {
         "id": "f08-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Oat, written only to test the layout of the reader on a phone screen.",
+        "text": "My first seal was too wide and leaked within a week, so I measured the second twice.",
         "para": 2
       },
       {
         "id": "f08-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Oat, written only to test the layout of the reader on a phone screen.",
-        "para": 3
+        "text": "Now a bucket takes 50 seconds, and 26 families use the pump.",
+        "para": 2
       },
       {
         "id": "f08-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Oat, written only to test the layout of the reader on a phone screen.",
+        "text": "I am applying to Bang Rak International University for its experienced teachers, modern laboratories and teaching in English.",
         "para": 3
       },
       {
         "id": "f08-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Oat, written only to test the layout of the reader on a phone screen.",
+        "text": "Next, I want to design pumps that villagers can repair with hardware-shop parts.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f08-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Fixed a temple hand pump, cutting the time to fill one bucket from 3 minutes to 50 seconds."
       },
       {
         "id": "f08-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Measured power use of 21 classroom fans for 4 weeks, which led the school to replace the 5 oldest."
       }
     ]
   },
@@ -960,48 +955,53 @@ window.SL = {
     "statement": [
       {
         "id": "f09-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Golf, written only to test the layout of the reader on a phone screen.",
+        "text": "From a young age, I have noticed how a smile changes the way people feel.",
         "para": 1
       },
       {
         "id": "f09-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Golf, written only to test the layout of the reader on a phone screen.",
+        "text": "My uncle makes false teeth in Nakhon Pathom, and I helped in his lab for a week.",
         "para": 1
       },
       {
         "id": "f09-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Golf, written only to test the layout of the reader on a phone screen.",
-        "para": 2
+        "text": "That week was once-in-a-lifetime, and it made dentistry my dream career.",
+        "para": 1
       },
       {
         "id": "f09-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Golf, written only to test the layout of the reader on a phone screen.",
+        "text": "I also have strong leadership skills, and teachers often ask me to organise group work.",
         "para": 2
       },
       {
         "id": "f09-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Golf, written only to test the layout of the reader on a phone screen.",
-        "para": 3
+        "text": "Whatever the task is, I go above and beyond, because details matter in dentistry.",
+        "para": 2
       },
       {
         "id": "f09-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Golf, written only to test the layout of the reader on a phone screen.",
+        "text": "I am applying because Bang Rak International University is prestigious and has world-class teachers.",
         "para": 3
       },
       {
         "id": "f09-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Golf, written only to test the layout of the reader on a phone screen.",
+        "text": "This scholarship would broaden my horizons and prepare me for life as a dentist.",
+        "para": 3
+      },
+      {
+        "id": "f09-s08",
+        "text": "With this support, I know that I can reach my full potential.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f09-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Assisted my uncle in his Nakhon Pathom dental lab for 1 week, watching him make false teeth."
       },
       {
         "id": "f09-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Took part in the school English camp in 2025, which was a great experience for my career."
       }
     ]
   },
@@ -1014,48 +1014,43 @@ window.SL = {
     "statement": [
       {
         "id": "f10-s01",
-        "text": "Placeholder sentence 1 of paragraph 1 for Noon, written only to test the layout of the reader on a phone screen.",
+        "text": "On an ordinary evening in November 2025, while we were sitting on the porch in Lampang, my grandmother sang me a lullaby I had never heard.",
         "para": 1
       },
       {
         "id": "f10-s02",
-        "text": "Placeholder sentence 2 of paragraph 1 for Noon, written only to test the layout of the reader on a phone screen.",
-        "para": 1
+        "text": "With my teacher, Khru Duangjai, I recorded 23 lullabies from 17 grandmothers in three villages.",
+        "para": 2
       },
       {
         "id": "f10-s03",
-        "text": "Placeholder sentence 3 of paragraph 2 for Noon, written only to test the layout of the reader on a phone screen.",
+        "text": "What I found was that eight songs were sung in all three villages, but with different words in each, so the same lullaby had changed from village to village.",
         "para": 2
       },
       {
         "id": "f10-s04",
-        "text": "Placeholder sentence 4 of paragraph 2 for Noon, written only to test the layout of the reader on a phone screen.",
+        "text": "My first recordings were noisy, so I now record indoors.",
         "para": 2
       },
       {
         "id": "f10-s05",
-        "text": "Placeholder sentence 5 of paragraph 3 for Noon, written only to test the layout of the reader on a phone screen.",
+        "text": "Since the Crossing Seminars put students from many faculties in one room, I hope to work with a computer science student on a searchable song archive.",
         "para": 3
       },
       {
         "id": "f10-s06",
-        "text": "Placeholder sentence 6 of paragraph 3 for Noon, written only to test the layout of the reader on a phone screen.",
-        "para": 3
-      },
-      {
-        "id": "f10-s07",
-        "text": "Placeholder sentence 7 of paragraph 4 for Noon, written only to test the layout of the reader on a phone screen.",
+        "text": "In my Year 3 internship, I would compare these songs with lullabies in Laos.",
         "para": 4
       }
     ],
     "activities": [
       {
         "id": "f10-a1",
-        "text": "Organised 3 placeholder workshops for 40 students, resulting in a new reading club at school."
+        "text": "Compared 23 lullabies from 17 grandmothers in 3 villages, which showed 8 songs had changed."
       },
       {
         "id": "f10-a2",
-        "text": "Helped at a placeholder event, which was great."
+        "text": "Translated 9 Northern Thai folk tales into English for a library display, which 140 students visited."
       }
     ]
   }
